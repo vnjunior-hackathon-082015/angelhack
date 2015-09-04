@@ -61,7 +61,7 @@
 			    <md-content ng-repeat="content in vm.ideaModel.categories[$index].sections track by $index" layout="row">
 			    	<md-input-container flex="70">
 					  <label>Content</label>
-					  <input ng-model="vm.ideaModel.categories[$parent.$index].sections[$index].history[0].description" type="text">
+					  <input ng-model="vm.ideaModel.categories[$parent.$index].sections[$index].description" type="text">
 					</md-input-container>
 					<!-- Privacy -->
 					<md-select placeholder="Section Privacy" ng-model="vm.ideaModel.categories[$parent.$index].sections[$index].privacy" md-on-open="vm.loadPrivacyOptions()" style="max-width: 200px;" flex="20">
