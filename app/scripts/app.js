@@ -38,6 +38,29 @@ angular
         controller: 'DashboardController',
         controllerAs: 'vm'
       })
+      .state('testpage',{
+        url: '/testpage',
+        templateUrl: 'views/testpage.html',
+        controller: 'TestPageController',
+        controllerAs: 'vm'
+      })
+      .state('mindmap',{
+        url: '/mindmap',
+        templateUrl: 'views/mind-map.html',
+        controller: 'MindmapController'
+      })
+      .state('editor',{
+        url: '/editor',
+        templateUrl: 'views/editor.html',
+        controller: 'EditorController',
+        controllerAs: 'vm'
+      })
+      .state('idea-detail',{
+        url: '/idea-detail',
+        templateUrl: 'views/idea-detail.html',
+        controller: 'IdeaDetailController',
+        controllerAs: 'vm'
+      })
       ;
   })
   .config(function($mdIconProvider){

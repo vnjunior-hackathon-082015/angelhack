@@ -1,0 +1,77 @@
+<div class="main-container">
+  <div class="idea-header">
+    <div class="avatar" style="background-image: url('../images/avatar/jsa.jpg');"></div>
+    <div class="idea-information">
+      <div class="title">
+        {{vm.selectedIdea.title}}
+      </div>
+      <div class="author"> {{vm.selectedIdea.ownerName}}</div>
+      <div class="create-date">{{vm.selectedIdea.createDate}}</div>
+      <div class="list-label">
+        <span class="label" ng-repeat="label in vm.selectedIdea.labels">{{label}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="add-category">
+    <md-button class="md-fab md-primary add-category" ng-click="vm.showAddCategory()">
+      <i class="material-icons">add</i>
+    </md-button>
+  </div>
+
+
+  <div class="idea-content">
+    <div class="category" ng-repeat="category in vm.selectedIdea.categories">
+      <div class="category-header">
+        {{category.name}}
+      </div>
+      <div class="category-content">
+
+        <v-accordion class="vAccordion--default section" multiple>
+          <v-pane class="section-body" ng-repeat="section in category.sections">
+            <v-pane-header class="section-title">
+              <div class="vote">
+                <i class="material-icons vote-up" ng-click="$event.stopPropagation();">arrow_drop_up</i>
+                <i class="material-icons vote-down" ng-click="$event.stopPropagation();">arrow_drop_down</i>
+              </div>
+              <div class="vote-value" ng-click="$event.stopPropagation();">
+                {{section.thumpUp - section.thumpDown}}
+              </div>
+              <div class="title">
+                {{section.history[section.history.length - 1].description}}
+              </div>
+              <div class="history">
+                <i class="material-icons">history</i>
+                <span class="edit" ng-if="section.history.length > 1" ng-click="vm.showEditHistory($event, section.history); $event.stopPropagation();" >Edited </span><span>{{section.history[section.history.length - 1].createDate}}</span>
+              </div>
+            </v-pane-header>
+
+            <v-pane-content class="">
+              <div class="comments">
+                <div class="comment" ng-repeat="comment in section.comments">
+                  <div class="comment-avatar">
+                  </div>
+                  <div class="comment-body">
+                    <div class="author">
+                      <b>{{comment.owner.name}}</b>
+                    </div>
+                    <div class="comment-content">
+                      {{comment.value}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="new-comment">
+                <md-input-container>
+                  <label>New comment</label>
+                  <i class="material-icons">send</i>
+                  <input ng-model="user.title">
+                </md-input-container>
+              </div>
+            </v-pane-content>
+          </v-pane>
+        </v-accordion>
+      </div>
+    </div>
+  </div>
+</div>
