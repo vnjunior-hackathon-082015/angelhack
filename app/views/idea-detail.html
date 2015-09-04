@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="add-category">
-    <md-button class="md-fab md-primary add-category" ng-click="vm.showAddCategory()">
+    <md-button class="md-fab md-primary add-category" ng-click="vm.showAddCategory($event, vm.selectedIdea.id)">
       <i class="material-icons">add</i>
     </md-button>
   </div>
@@ -30,8 +30,8 @@
           <v-pane class="section-body" ng-repeat="section in category.sections">
             <v-pane-header class="section-title">
               <div class="vote">
-                <i class="material-icons vote-up" ng-click="$event.stopPropagation();">arrow_drop_up</i>
-                <i class="material-icons vote-down" ng-click="$event.stopPropagation();">arrow_drop_down</i>
+                <i class="material-icons vote-up" ng-click="vm.thumpIdea(true, vm.selectedIdea.id, category.id, section.id); $event.stopPropagation();">arrow_drop_up</i>
+                <i class="material-icons vote-down" ng-click="vm.thumpIdea(false, vm.selectedIdea.id, category.id, section.id); $event.stopPropagation();">arrow_drop_down</i>
               </div>
               <div class="vote-value" ng-click="$event.stopPropagation();">
                 {{section.thumpUp - section.thumpDown}}
@@ -43,12 +43,13 @@
                 <i class="material-icons">history</i>
                 <span class="edit" ng-if="section.history.length > 1" ng-click="vm.showEditHistory($event, section.history); $event.stopPropagation();" >Edited </span><span>{{section.history[section.history.length - 1].createDate}}</span>
               </div>
+              <i class="material-icons edit-section" ng-click="vm.showEditSection($event, vm.selectedIdea.id, category.id, section.id, section.history[section.history.length - 1].description); $event.stopPropagation();">mode_edit</i>
             </v-pane-header>
 
             <v-pane-content class="">
               <div class="comments">
                 <div class="comment" ng-repeat="comment in section.comments">
-                  <div class="comment-avatar">
+                  <div class="comment-avatar"  style="background-image: url({{comment.owner.avatarURL}});">
                   </div>
                   <div class="comment-body">
                     <div class="author">
@@ -64,8 +65,8 @@
               <div class="new-comment">
                 <md-input-container>
                   <label>New comment</label>
-                  <i class="material-icons">send</i>
-                  <input ng-model="user.title">
+                  <i class="material-icons" ng-click="vm.addNewComment(vm.selectedIdea.id, category.id, section.id)">send</i>
+                  <input ng-model="vm['newComment_' + vm.selectedIdea.id + '_' + category.id + '_' + section.id]" ng-keypress="($event.which === 13)?vm.addNewComment(vm.selectedIdea.id, category.id, section.id):0">
                 </md-input-container>
               </div>
             </v-pane-content>

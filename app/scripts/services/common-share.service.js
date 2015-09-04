@@ -24,7 +24,8 @@
             thumpIdea: thumpIdea,
             commentIdea: commentIdea,
             addCategory: addCategory,
-            addIdea: addIdea
+            addIdea: addIdea,
+            editSection: editSection
         };
 
         //==================== Function declaration ====================
@@ -215,6 +216,30 @@
           ideas.push(ideaObj);
           setIdeas(ideas);
 
+        }
+
+        function editSection(description, ideaId, categoryId, sectionId){
+          var ideas = getIdeas(),
+            i, j, k;
+          for(i = 0; i < ideas.length; i++){
+            if(ideas[i].id == ideaId){
+              var categories = ideas[i].categories;
+              for(j = 0; j < categories.length; j++){
+                if(categories[j].id == categoryId){
+                  var sections = categories[j].sections;
+                  for(k = 0; k < sections.length; k++){
+                    if(sections[k].id == sectionId){
+                      sections[k].history.push({
+                        "description": description,
+                        "createDate": toDateString(new Date())
+                      });
+                      setIdeas(ideas);
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
 
         function toDateString(date){

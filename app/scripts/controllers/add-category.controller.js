@@ -3,9 +3,10 @@
  */
 
 angular.module('inceptionApp')
-  .controller('AddCategoryController', function($scope, $mdDialog, data){
+  .controller('AddCategoryController', function($scope, $mdDialog, data, commonShareService){
     $scope.data = data;
     $scope.newSections = [];
+    $scope.newCategory = "";
     $scope.addNewSection = function(input){
       if ($scope.newSectionInput != undefined && $scope.newSectionInput != '') {
         $scope.newSections.push(input);
@@ -16,6 +17,10 @@ angular.module('inceptionApp')
       $scope.newSections.splice(index, 1);
     };
     $scope.closeDialog = function() {
+      $mdDialog.hide();
+    }
+    $scope.submit = function() {
+      commonShareService.addCategory(data, $scope.newCategory, 1, $scope.newSections);
       $mdDialog.hide();
     }
   });
