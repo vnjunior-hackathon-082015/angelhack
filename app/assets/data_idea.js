@@ -18,6 +18,7 @@ var data_ideas = [
                 "type": 1,
                 "sections": [
                     {
+                        "id": 1,
                         "thumpUp": 10,
                         "thumpDown": 2,
                         "privacy": "public",
@@ -53,11 +54,12 @@ var data_ideas = [
                 ]
             },
             {
-                "id": 1,
+                "id": 2,
                 "name": "Blocker",
                 "type": 1,
                 "sections": [
                     {
+                        "id": 1,
                         "thumpUp": 10,
                         "thumpDown": 2,
                         "privacy": "public",
@@ -113,6 +115,7 @@ var data_ideas = [
                 "type": 1,
                 "sections": [
                     {
+                        "id": 1,
                         "thumpUp": 10,
                         "thumpDown": 2,
                         "privacy": "public",
@@ -148,11 +151,12 @@ var data_ideas = [
                 ]
             },
             {
-                "id": 1,
+                "id": 2,
                 "name": "Blocker",
                 "type": 1,
                 "sections": [
                     {
+                        "id": 1,
                         "thumpUp": 10,
                         "thumpDown": 2,
                         "privacy": "public",
@@ -208,6 +212,7 @@ var data_ideas = [
                 "type": 1,
                 "sections": [
                     {
+                        "id": 1,
                         "thumpUp": 10,
                         "thumpDown": 2,
                         "privacy": "public",
@@ -247,11 +252,12 @@ var data_ideas = [
                 ]
             },
             {
-                "id": 1,
+                "id": 2,
                 "name": "Blocker",
                 "type": 1,
                 "sections": [
                     {
+                        "id": 1,
                         "thumpUp": 10,
                         "thumpDown": 2,
                         "privacy": "public",
@@ -285,6 +291,7 @@ var data_ideas = [
                         ]
                     },
                     {
+                        "id": 2,
                         "thumpUp": 10,
                         "thumpDown": 2,
                         "privacy": "public",
