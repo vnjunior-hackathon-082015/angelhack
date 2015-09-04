@@ -89,3 +89,28 @@ body {
     border-bottom: 0;
   }
 }
+
+.navbar{
+  .container{
+    background-color: #1976D2;
+    .navbar-brand{
+      color: #fff;
+      padding-left: 40px;
+    }
+  }
+}
+
+.navbar-default{
+  .navbar-nav{
+    .active{
+      a{
+        color: #fff;
+      }
+    }
+    > li{
+      > a{
+        color: #fff;
+      }
+    }
+  }
+}

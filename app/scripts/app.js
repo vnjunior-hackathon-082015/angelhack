@@ -37,6 +37,12 @@ angular
         controller: 'DashboardController',
         controllerAs: 'vm'
       })
+      .state('idea-detail',{
+        url: '/idea-detail',
+        templateUrl: 'views/idea-detail.html',
+        controller: 'IdeaDetailController',
+        controllerAs: 'vm'
+      })
       ;
   })
   .config(function($mdIconProvider){
