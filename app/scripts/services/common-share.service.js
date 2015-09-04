@@ -13,11 +13,13 @@
     commonShareService.$inject = ['$http', '$window'];
 
     function commonShareService($http, $window) {
-      var _loginInfo = null;
+      var _loginInfo = null,
+          _ideas;
 
         return {
             getLoginInfo: getLoginInfo,
-            setLoginInfo: setLoginInfo
+            setLoginInfo: setLoginInfo,
+            getIdeas: getIdeas
         };
 
         //==================== Function declaration ====================
@@ -36,6 +38,27 @@
           }
           _loginInfo = param;
           $window.sessionStorage.loginInfo = str;
+        }
+
+        function getIdeas(){
+          if (!_ideas) {
+            var value = $window.sessionStorage.ideas;
+            _ideas = value ? JSON.parse(value) : angular.copy(data_ideas);
+          }
+          return _ideas;
+        }
+
+        function setIdeas(param){
+          var str = param;
+          if (param) {
+              str = JSON.stringify(param);
+          }
+          _ideas = param;
+          if(param === null){
+            $window.sessionStorage.removeItem('ideas');
+          } else{
+            $window.sessionStorage.ideas = str;
+          }
         }
     }
 

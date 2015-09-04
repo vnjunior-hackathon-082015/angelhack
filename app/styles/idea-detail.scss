@@ -187,12 +187,33 @@
     vertical-align: middle;
     cursor: pointer;
   }
+  .history{
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+    padding-top: 20px;
+    .edit{
+      color: blue;
+      cursor: pointer;
+      padding-right: 10px;
+      outline: none;
+    }
+    i{
+      color: #9E9E9E;
+    }
+    i, span{
+      display: inline-block;
+      vertical-align: middle;
+
+    }
+  }
 }
 
 .label{
   background-color: #1E88E5;
   color: white;
   cursor: pointer;
+  margin-right: 5px;
 }
 
 .md-button.md-primary.md-fab{
@@ -216,6 +237,21 @@ v-pane-header::after, v-pane-header::before{
 }
 v-pane-header{
   cursor: inherit;
+}
+
+.dialog-history{
+  .title{
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  .edited{
+    border-bottom: 1px solid rgb(194, 194, 194);
+    margin-top: 10px;
+    span:first-child{
+     font-style: italic;
+    }
+  }
 }
 
 
