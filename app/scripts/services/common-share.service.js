@@ -23,7 +23,8 @@
             setIdeas: setIdeas,
             thumpIdea: thumpIdea,
             commentIdea: commentIdea,
-            addCategory: addCategory
+            addCategory: addCategory,
+            addIdea: addIdea
         };
 
         //==================== Function declaration ====================
@@ -161,6 +162,59 @@
               setIdeas(ideas);
             }
           }
+        }
+
+        function addIdea(title, description, labels, privacy, categoriesParam){
+          var i,j,
+              ideas = getIdeas(),
+              ownerName = 'Dat Nguyen',
+              createDate = toDateString(new Date()),
+              categories = [];
+
+          for(i = 0; i < categoriesParam.length; i++){
+            var categoryObj = {
+                "id": i + 1,
+                "name": categoriesParam[i].name,
+                "type": 1,
+                "sections": []
+            };
+            var sections = [];
+            for(j = 0; j < categoriesParam[i].sections.length; j++){
+              var sectionObj = {
+                  "id": j + 1,
+                  "thumpUp": 0,
+                  "thumpDown": 0,
+                  "privacy": categoriesParam[i].sections[j].privacy,
+                  "history": [
+                      {
+                          "description": categoriesParam[i].sections[j].description,
+                          "createDate": createDate
+                      }
+                  ],
+                  "comments": []
+              };
+              categoryObj.sections.push(sectionObj);
+            }
+            categories.push(categoryObj);
+          }
+
+          var ideaObj = {
+              "id": ideas.length + 1,
+              "title": title,
+              "ownerName": ownerName,
+              "description": description,
+              "thumpUp": 0,
+              "thumpDown": 0,
+              "possibility": 100,
+              "createDate": createDate,
+              "modifyDate": createDate,
+              "labels": labels,
+              "privacy": privacy,
+              "categories": categories
+          };
+          ideas.push(ideaObj);
+          setIdeas(ideas);
+
         }
 
         function toDateString(date){

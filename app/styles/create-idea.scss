@@ -11,9 +11,15 @@
 			}
 		}
 		.add-category-control{
-			background-color: green;
 			.add-category-button{
+				margin-top: 20px;
 				height: 30px;
+			}
+		}
+		.buttons-control{
+			.cancel-button, .create-button{
+				height: 50px;
+				width: 130px;
 			}
 		}
 	}
