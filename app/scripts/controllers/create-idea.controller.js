@@ -8,9 +8,9 @@
     .module('inceptionApp')
     .controller('CreateIdeaController', CreateIdeaController);
 
-  CreateIdeaController.$inject = ['$scope', '$mdDialog', '$timeout' ];
+  CreateIdeaController.$inject = ['$scope', '$mdDialog', '$timeout', 'commonShareService' ];
 
-  function CreateIdeaController($scope, $mdDialog, $timeout){
+  function CreateIdeaController($scope, $mdDialog, $timeout, commonShareService){
     var vm = this;
     vm.cancel = cancel;
     vm.answer = answer;
@@ -31,13 +31,8 @@
                             "name": "Introduction",
                             "sections": [
                                 {
-                                    "history": [
-                                        {
-                                            "description": "",
-                                        }
-                                    ],
-                                    "comments": [
-                                    ]
+                                    "privacy": "",
+                                    "description": ""
                                 }
                             ]
                         }
@@ -62,30 +57,17 @@
     function addSection(index){
       vm.ideaModel.categories[index].sections.push({
                                     "privacy": "",
-                                    "history": [
-                                        {
-                                            "description": "",
-                                        }
-                                    ],
-                                    "comments": [
-                                    ]
+                                    "description": ""
                                 });
     };
 
     function addCategory(name){
       vm.ideaModel.categories.push({
                             "name": name,
-                            "type": 1,
                             "sections": [
                                 {
                                     "privacy": "",
-                                    "history": [
-                                        {
-                                            "description": "",
-                                        }
-                                    ],
-                                    "comments": [
-                                    ]
+                                    "description": ""
                                 }
                             ]
                         });
@@ -104,7 +86,8 @@
     };
 
     function confirmIdea(ideaModel){
-      debugger;
+      commonShareService.addIdea(ideaModel.title, ideaModel.description, ideaModel.labels, ideaModel.privacy, ideaModel.categories);
+      answer("created");
     };
 
     function answer(ans) {

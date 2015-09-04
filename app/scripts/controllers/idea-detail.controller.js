@@ -3,7 +3,7 @@
  */
 
 angular.module('inceptionApp')
-  .controller('IdeaDetailController', function(commonShareService, $mdDialog, $scope){
+  .controller('IdeaDetailController', function(commonShareService, $log, $mdDialog, $scope){
     var vm = this;
 
     vm.showEditHistory = showEditHistory;
@@ -48,7 +48,7 @@ angular.module('inceptionApp')
       }
     };
 
-    function showEditSection(ev, ideaId, categoryId, sectionId){
+    function showEditSection(ev, ideaId, categoryId, sectionId, value){
       $mdDialog.show({
         clickOutsideToClose: true,
         targetEvent: ev,
@@ -68,19 +68,21 @@ angular.module('inceptionApp')
         locals: {
           ideaId: ideaId,
           categoryId: categoryId,
-          sectionId: sectionId
+          sectionId: sectionId,
+          value: value
         },
         controller: EditSectionController
       });
-      function EditSectionController($scope, $mdDialog, ideaId, categoryId, sectionId) {
+      function EditSectionController($scope, $mdDialog, ideaId, categoryId, sectionId, value) {
         $scope.ideaId = ideaId;
         $scope.categoryId = categoryId;
         $scope.sectionId = sectionId;
+        $scope.editSection = value;
         $scope.closeDialog = function() {
           $mdDialog.hide();
         };
         $scope.submit = function() {
-
+          commonShareService.editSection($scope.editSection,  $scope.ideaId, $scope.categoryId, $scope.sectionId);
           $mdDialog.hide();
         }
       }
@@ -100,9 +102,11 @@ angular.module('inceptionApp')
     };
 
     function addNewComment(ideaId, categoryId, sectionId){
-      if (vm.newComment != undefined && vm.newComment != ""){
-        commonShareService.commentIdea(vm.newComment, ideaId, categoryId, sectionId);
-        vm.newComment = "";
+      $log.debug(ideaId, categoryId, sectionId);
+      var newComment = vm['newComment_' + ideaId + '_' + categoryId+ '_' + sectionId];
+      if (newComment  != undefined && newComment != ""){
+        commonShareService.commentIdea(newComment, ideaId, categoryId, sectionId);
+        vm['newComment_' + ideaId + '_' + categoryId+ '_' + sectionId] = "";
       };
     }
 
