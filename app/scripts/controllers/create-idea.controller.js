@@ -8,9 +8,9 @@
     .module('inceptionApp')
     .controller('CreateIdeaController', CreateIdeaController);
 
-  CreateIdeaController.$inject = ['$scope', '$mdDialog', '$timeout' ];
+  CreateIdeaController.$inject = ['$scope', '$mdDialog', '$timeout', 'commonShareService' ];
 
-  function CreateIdeaController($scope, $mdDialog, $timeout){
+  function CreateIdeaController($scope, $mdDialog, $timeout, commonShareService){
     var vm = this;
     vm.cancel = cancel;
     vm.answer = answer;
@@ -19,37 +19,20 @@
     vm.addCategory = addCategory;
     vm.deleteCategory = deleteCategory;
     vm.deleteSection = deleteSection;
+    vm.confirmIdea = confirmIdea;
 
     vm.ideaModel = {
-                    "ideaID": 10,
                     "title": "",
-                    "ownerName": "",
                     "description": "",
-                    "thumpUp": 0,
-                    "thumpDown": 0,
-                    "possibility": 0,
-                    "createDate": "",
-                    "modifyDate": "",
                     "labels": "",
                     "privacy": "",
                     "categories": [
                         {
-                            "id": 1,
                             "name": "Introduction",
-                            "type": 1,
                             "sections": [
                                 {
-                                    "thumpUp": 0,
-                                    "thumpDown": 0,
                                     "privacy": "",
-                                    "history": [
-                                        {
-                                            "description": "",
-                                            "createDate": ""
-                                        }
-                                    ],
-                                    "comments": [
-                                    ]
+                                    "description": ""
                                 }
                             ]
                         }
@@ -73,38 +56,18 @@
 
     function addSection(index){
       vm.ideaModel.categories[index].sections.push({
-                                    "thumpUp": 0,
-                                    "thumpDown": 0,
                                     "privacy": "",
-                                    "history": [
-                                        {
-                                            "description": "",
-                                            "createDate": ""
-                                        }
-                                    ],
-                                    "comments": [
-                                    ]
+                                    "description": ""
                                 });
     };
 
-    function addCategory(){
+    function addCategory(name){
       vm.ideaModel.categories.push({
-                            "id": 1,
-                            "name": "Introduction",
-                            "type": 1,
+                            "name": name,
                             "sections": [
                                 {
-                                    "thumpUp": 0,
-                                    "thumpDown": 0,
                                     "privacy": "",
-                                    "history": [
-                                        {
-                                            "description": "",
-                                            "createDate": ""
-                                        }
-                                    ],
-                                    "comments": [
-                                    ]
+                                    "description": ""
                                 }
                             ]
                         });
@@ -122,12 +85,16 @@
       }
     };
 
+    function confirmIdea(ideaModel){
+      commonShareService.addIdea(ideaModel.title, ideaModel.description, ideaModel.labels, ideaModel.privacy, ideaModel.categories);
+      answer("created");
+    };
+
     function answer(ans) {
       $mdDialog.hide(ans);
     };
 
     function cancel(){
-      debugger;
       $mdDialog.cancel();
     };
      

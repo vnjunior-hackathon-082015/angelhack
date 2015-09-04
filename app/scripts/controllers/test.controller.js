@@ -15,6 +15,8 @@
     vm.thumDown = thumDown;
     vm.addCategory = addCategory;
     vm.comment = comment;
+    vm.addIdea = addIdea;
+    vm.editSection = editSection;
 
 
     //==================== Function Declaration ====================
@@ -56,6 +58,48 @@
         sectionValues.push('New section 4 added');
 
         commonShareService.addCategory(ideaId, name, type, sectionValues);
+    }
+
+    function addIdea(){
+        var title = 'New idea added',
+            description = 'New idea description added',
+            labels = ['sale', 'test', 'idea added'],
+            privacy = 'public',
+            categoriesParam = [];
+
+        categoriesParam.push({
+            "name": "Category 1",
+            "sections": [
+                {
+                    "privacy": "public",
+                    "description": "New Category 1 Section 1 added"
+                },
+                {
+                    "privacy": "onlyme",
+                    "description": "New Category 1 Section 2 added"
+                }
+            ]
+        });
+
+        categoriesParam.push({
+            "name": "Category 2",
+            "sections": [
+                {
+                    "privacy": "public",
+                    "description": "New Category 2 Section 1 added"
+                }
+            ]
+        });
+
+        commonShareService.addIdea(title, description, labels, privacy, categoriesParam);
+    }
+
+    function editSection(){
+        var description =  'Edit description added',
+            ideaId =  1,
+            categoryId = 1,
+            sectionId = 1;
+        commonShareService.editSection(description, ideaId, categoryId, sectionId);
     }
 
 });

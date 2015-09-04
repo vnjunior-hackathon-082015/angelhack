@@ -45,7 +45,7 @@
 		    	<md-toolbar class="category-toolbar">
 			      <div class="md-toolbar-tools">
 			        <h4>
-			          <span>Main Category</span>
+			          <span>{{category.name}}</span>
 			        </h4>
 			        <span flex></span>
 			        <md-button class="md-icon-button add-section-button" aria-label="Favorite" ng-click="vm.addSection($index)">
@@ -59,10 +59,19 @@
 
 
 			    <md-content ng-repeat="content in vm.ideaModel.categories[$index].sections track by $index" layout="row">
-			    	<md-input-container flex="90">
+			    	<md-input-container flex="70">
 					  <label>Content</label>
-					  <input  type="text">
+					  <input ng-model="vm.ideaModel.categories[$parent.$index].sections[$index].description" type="text">
 					</md-input-container>
+					<!-- Privacy -->
+					<md-select placeholder="Section Privacy" ng-model="vm.ideaModel.categories[$parent.$index].sections[$index].privacy" md-on-open="vm.loadPrivacyOptions()" style="max-width: 200px;" flex="20">
+					    <md-option ng-value="option.name" ng-repeat="option in vm.privacyOptions">
+					     	<md-icon md-font-library="material-icons">{{option.icon}}</md-icon>
+					     	{{option.name}} 
+		 			 	</md-option>
+					</md-select>
+					<!-- Privacy -->
+
 					<md-button class="md-icon-button" aria-label="Favorite" ng-click="vm.deleteSection($parent.$index, $index)" flex="5">
 				        <md-icon md-font-library="material-icons">clear</md-icon>
 				    </md-button>
@@ -71,21 +80,19 @@
 			  
 			</md-whiteframe>
 
-			<div layout="row add-category-control">
+			<div class="add-category-control" layout="row">
 				<md-input-container flex="80">
 				  <label>Category Name</label>
-				  <input  type="text">
+				  <input ng-model="vm.newCategoryName" type="text">
 				</md-input-container>
-				<md-button class="md-raised md-primary add-category-button" ng-click="vm.addCategory()" flex="15">Add Category</md-button>
+				<md-button class="md-raised md-primary add-category-button" ng-click="vm.addCategory(vm.newCategoryName)" flex="15">Add Category</md-button>
 				
 			</div>
 			
-			
-			  
-			<div class="md-actions" layout="row">
+			<div class="md-actions buttons-control" layout="row">
 			    <span flex></span>
-			    <md-button class="md-raised md-warn" ng-click="vm.answer('cancel')">Cancel</md-button>
-			    <md-button class="md-raised md-primary" ng-click="vm.confirmIdea(vm.ideaModel)">Create</md-button>
+			    <md-button class="md-raised md-warn cancel-button" ng-click="vm.answer('cancel')">Cancel</md-button>
+			    <md-button class="md-raised md-primary create-button" ng-click="vm.confirmIdea(vm.ideaModel)">Create</md-button>
 			 </div>
 			</md-content>
 	   </md-dialog-content>

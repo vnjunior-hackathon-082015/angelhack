@@ -133,8 +133,9 @@
                 cursor: pointer;
                 transform: rotate(-30deg);
                 color: rgb(155, 150, 150);
+                outline: none;
               }
-              .md-input-has-value.md-input-focused{
+              .md-input-has-value{
                 i{
                   color: rgb(63, 81, 181);
                 }
@@ -192,6 +193,9 @@
     vertical-align: middle;
     float: right;
     padding-top: 20px;
+    position: absolute;
+    right: 0;
+    bottom: 6px;
     .edit{
       color: blue;
       cursor: pointer;
@@ -205,6 +209,17 @@
       display: inline-block;
       vertical-align: middle;
 
+    }
+  }
+  .edit-section{
+    position: absolute;
+    right: 4px;
+    top: 6px;
+    color: grey;
+    cursor: pointer;
+    outline: none;
+    &:hover{
+      color: #2196F3;
     }
   }
 }
@@ -258,7 +273,7 @@ v-pane-header{
   min-width: 800px;
   .add-sections{
     .sections{
-      overflow: scroll;
+      overflow-y: scroll;
       max-height: 200px;
     }
     .section{
