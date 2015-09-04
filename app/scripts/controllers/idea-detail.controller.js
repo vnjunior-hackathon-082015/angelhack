@@ -82,7 +82,7 @@ angular.module('inceptionApp')
           $mdDialog.hide();
         };
         $scope.submit = function() {
-
+          commonShareService.editSection($scope.editSection,  $scope.ideaId, $scope.categoryId, $scope.sectionId);
           $mdDialog.hide();
         }
       }
