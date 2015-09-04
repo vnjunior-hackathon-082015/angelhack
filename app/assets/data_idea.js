@@ -2,9 +2,9 @@ var data_ideas = [
     {
         "id": 1,
         "thumpUp": 10,
-      "title": "Sell Vietnamese food in Dubai",
-      "ownerName": "Dat Nguyen",
-      "description": "Idea description",
+        "title": "Sell Vietnamese food in Dubai",
+        "ownerName": "Dat Nguyen",
+        "description": "Idea description",
         "thumpDown": 2,
         "possibility": 90,
         "createDate": "2015-09-02 13:12:00",
@@ -72,25 +72,25 @@ var data_ideas = [
                                 "description": "The first step to expand over the world",
                                 "createDate": "2015-09-02 13:12:30"
                             }
+                        ],
+                        "comments": [
+                            {
+                                "id": 1,
+                                "value": "Section comment 1",
+                                "owner": {
+                                    "name": "Hung Thai",
+                                    "avatarURL": "../images/avatar/hung_thai.jpg"
+                                }
+                            },
+                            {
+                                "id": 2,
+                                "value": "Section comment 2",
+                                "owner": {
+                                    "name": "Hien Pham",
+                                    "avatarURL": "../images/avatar/hien_pham.jpg"
+                                }
+                            }
                         ]
-                    }
-                ],
-                "comments": [
-                    {
-                        "id": 1,
-                        "value": "Section comment 1",
-                        "owner": {
-                            "name": "Hung Thai",
-                            "avatarURL": "../images/avatar/hung_thai.jpg"
-                        }
-                    },
-                    {
-                        "id": 2,
-                        "value": "Section comment 2",
-                        "owner": {
-                            "name": "Hien Pham",
-                            "avatarURL": "../images/avatar/hien_pham.jpg"
-                        }
                     }
                 ]
             }
@@ -128,25 +128,25 @@ var data_ideas = [
                                 "description": "No need to wait in the line",
                                 "createDate": "2015-09-02 13:12:30"
                             }
+                        ],
+                        "comments": [
+                            {
+                                "id": 1,
+                                "value": "Section comment 1",
+                                "owner": {
+                                    "name": "Hung Thai",
+                                    "avatarURL": "../images/avatar/hung_thai.jpg"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "value": "Section comment 2",
+                                "owner": {
+                                    "name": "Hien Pham",
+                                    "avatarURL": "../images/avatar/hien_pham.jpg"
+                                }
+                            }
                         ]
-                    }
-                ],
-                "comments": [
-                    {
-                        "id": 1,
-                        "value": "Section comment 1",
-                        "owner": {
-                            "name": "Hung Thai",
-                            "avatarURL": "../images/avatar/hung_thai.jpg"
-                        }
-                    },
-                    {
-                        "id": 1,
-                        "value": "Section comment 2",
-                        "owner": {
-                            "name": "Hien Pham",
-                            "avatarURL": "../images/avatar/hien_pham.jpg"
-                        }
                     }
                 ]
             },
@@ -229,25 +229,25 @@ var data_ideas = [
                                 "description": "More security, only the owner can turn on the car",
                                 "createDate": "2015-09-03 15:12:30"
                             }
+                        ],
+                        "comments": [
+                            {
+                                "id": 1,
+                                "value": "Section comment 1",
+                                "owner": {
+                                    "name": "Hung Thai",
+                                    "avatarURL": "../images/avatar/hung_thai.jpg"
+                                }
+                            },
+                            {
+                                "id": 1,
+                                "value": "Section comment 2",
+                                "owner": {
+                                    "name": "Hien Pham",
+                                    "avatarURL": "../images/avatar/hien_pham.jpg"
+                                }
+                            }
                         ]
-                    }
-                ],
-                "comments": [
-                    {
-                        "id": 1,
-                        "value": "Section comment 1",
-                        "owner": {
-                            "name": "Hung Thai",
-                            "avatarURL": "../images/avatar/hung_thai.jpg"
-                        }
-                    },
-                    {
-                        "id": 1,
-                        "value": "Section comment 2",
-                        "owner": {
-                            "name": "Hien Pham",
-                            "avatarURL": "../images/avatar/hien_pham.jpg"
-                        }
                     }
                 ]
             },

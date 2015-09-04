@@ -16,6 +16,7 @@
     vm.addCategory = addCategory;
     vm.comment = comment;
     vm.addIdea = addIdea;
+    vm.editSection = editSection;
 
 
     //==================== Function Declaration ====================
@@ -91,6 +92,14 @@
         });
 
         commonShareService.addIdea(title, description, labels, privacy, categoriesParam);
+    }
+
+    function editSection(){
+        var description =  'Edit description added',
+            ideaId =  1,
+            categoryId = 1,
+            sectionId = 1;
+        commonShareService.editSection(description, ideaId, categoryId, sectionId);
     }
 
 });
