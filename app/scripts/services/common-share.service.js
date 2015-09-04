@@ -25,7 +25,8 @@
             commentIdea: commentIdea,
             addCategory: addCategory,
             addIdea: addIdea,
-            editSection: editSection
+            editSection: editSection,
+            searchIdeas: searchIdeas
         };
 
         //==================== Function declaration ====================
@@ -240,6 +241,42 @@
               }
             }
           }
+        }
+
+        function searchIdeas(searchTexts, isOnlyLabel){
+          var ideas = getIdeas(),
+            i, j, k;
+          var result = [];
+          for(i = 0; i < ideas.length; i++){
+            for(j = 0; j < searchTexts.length; j++){
+              var searchText = searchTexts[j].toLowerCase().trim();
+              if(isOnlyLabel){
+                if(isInLabels(searchText, ideas[i].labels)){
+                  result.push(ideas[i]);
+                  break;
+                }
+              } else{
+                if(ideas[i].title.toLowerCase().indexOf(searchText) > -1
+                  || ideas[i].description.toLowerCase().indexOf(searchText) > -1
+                  || isInLabels(searchText, ideas[i].labels)){
+                  result.push(ideas[i]);
+                  break;
+                }
+              }
+            }
+          }
+          return result;
+        }
+
+        function isInLabels(searchText, labels){
+          var result = false,
+              i;
+          for(i = 0; i < labels.length; i++){
+            if(labels[i].toLowerCase() == searchText.toLowerCase()){
+              return true;
+            }
+          }
+          return false;
         }
 
         function toDateString(date){

@@ -17,7 +17,11 @@
     vm.comment = comment;
     vm.addIdea = addIdea;
     vm.editSection = editSection;
-
+    vm.search1 = search1;
+    vm.search2 = search2;
+    vm.search3 = search3;
+    vm.search4 = search4;
+    vm.search5 = search5;
 
     //==================== Function Declaration ====================
     function thumUp(){
@@ -27,6 +31,7 @@
             sectionId = 1;
 
         commonShareService.thumpIdea(isThumpUp, ideaId, categoryId, sectionId);
+        vm.ideas = commonShareService.getIdeas();
     }
 
     function thumDown(){
@@ -36,6 +41,7 @@
             sectionId = 1;
 
         commonShareService.thumpIdea(isThumpUp, ideaId, categoryId, sectionId);
+        vm.ideas = commonShareService.getIdeas();
     }
 
     function comment(){
@@ -44,6 +50,7 @@
             categoryId = 1,
             sectionId = 1;
         commonShareService.commentIdea(comment, ideaId, categoryId, sectionId);
+        vm.ideas = commonShareService.getIdeas();
     }
 
     function addCategory(){
@@ -58,6 +65,7 @@
         sectionValues.push('New section 4 added');
 
         commonShareService.addCategory(ideaId, name, type, sectionValues);
+        vm.ideas = commonShareService.getIdeas();
     }
 
     function addIdea(){
@@ -92,6 +100,7 @@
         });
 
         commonShareService.addIdea(title, description, labels, privacy, categoriesParam);
+        vm.ideas = commonShareService.getIdeas();
     }
 
     function editSection(){
@@ -100,8 +109,38 @@
             categoryId = 1,
             sectionId = 1;
         commonShareService.editSection(description, ideaId, categoryId, sectionId);
+        vm.ideas = commonShareService.getIdeas();
     }
 
+    function search1(){
+        var searchTexts = ['identify1212', 'security1212'],
+            isOnlyLabel = false;
+        vm.ideas = commonShareService.searchIdeas(searchTexts, isOnlyLabel);
+    }
+
+    function search2(){
+        var searchTexts = ['seCurity'],
+            isOnlyLabel = false;
+        vm.ideas = commonShareService.searchIdeas(searchTexts, isOnlyLabel);
+    }
+
+    function search3(){
+        var searchTexts = ['power on for the owner'],
+            isOnlyLabel = false;
+        vm.ideas = commonShareService.searchIdeas(searchTexts, isOnlyLabel);
+    }
+
+    function search4(){
+        var searchTexts = ['Driver'],
+            isOnlyLabel = true;
+        vm.ideas = commonShareService.searchIdeas(searchTexts, isOnlyLabel);
+    }
+
+    function search5(){
+        var searchTexts = ['SeCurity'],
+            isOnlyLabel = true;
+        vm.ideas = commonShareService.searchIdeas(searchTexts, isOnlyLabel);
+    }
 });
 
 
