@@ -14,8 +14,10 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashBoard.css">
+    <link rel="stylesheet" href="styles/mindmap.css">
+    <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/create-idea.css">
-
     <!-- endbuild -->
     <!-- Angular Material CSS using GitCDN to load directly from `bower-material/master` -->
     <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css">
@@ -23,6 +25,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../bower_components/angular-ui-bootstrap-datetimepicker/datetimepicker.css">
     <link rel="stylesheet" type="text/css" href="bower_components/angular-block-ui/dist/angular-block-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/ng-ckeditor/ng-ckeditor.css"/>
   </head>
   <body ng-app="inceptionApp">
     <!--[if lt IE 7]>
@@ -103,12 +106,20 @@
     <script src="bower_components/angular-ui-bootstrap-datetimepicker/datetimepicker.js"></script>
     <script src="../bower_components/v-accordion/dist/v-accordion.js"></script>
     <script src="bower_components/angular-block-ui/dist/angular-block-ui.js"></script>
+  <script src="bower_components/ng-ckeditor/libs/ckeditor/ckeditor.js"></script>
+    <script src="bower_components/ng-ckeditor/ng-ckeditor.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+
+        <script src="assets/data_idea.js"></script>
+
         <script src="scripts/services/common-share.service.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/mind-map.controller.js"></script>
         <script src="scripts/controllers/home.controller.js"></script>
         <script src="scripts/controllers/dashboard.controller.js"></script>
         <script src="scripts/controllers/create-idea.controller.js"></script>
