@@ -1,0 +1,32 @@
+<md-dialog class="dialog-add-category" aria-label="List dialog">
+  <md-dialog-content>
+    <h3 class="title">Add New Category</h3>
+    <md-input-container>
+      <label>Category name</label>
+      <input ng-model="newCategory" type="text">
+    </md-input-container>
+    <div class="add-sections">
+      <h5>Sections:</h5>
+      <div class="sections">
+        <div class="section" ng-repeat="section in newSections">
+          <i class="material-icons" ng-click="removeSection($index)">close</i>
+          <p>{{section}}<p>
+        </div>
+      </div>
+      <md-input-container flex>
+        <label>New section</label>
+        <i class="material-icons" ng-click="addNewSection(newSectionInput)">send</i>
+        <!--<input ng-model="newSectionInput" ng-keypress="($event.which === 13)?addNewSection(newSectionInput):0">-->
+        <input ng-model="newSectionInput" >
+      </md-input-container>
+    </div>
+  </md-dialog-content>
+  <div class="md-actions">
+    <md-button ng-click="closeDialog()" class="md-warn">
+      Cancel
+    </md-button>
+    <md-button ng-click="submit()" class="md-primary">
+      OK
+    </md-button>
+  </div>
+</md-dialog>

@@ -1,10 +1,10 @@
 var data_ideas = [
     {
         "id": 1,
-        "title": "Sell Vietnamese food in Dubai",
-        "ownerName": "Dat Nguyen",
-        "description": "Idea description",
         "thumpUp": 10,
+      "title": "Sell Vietnamese food in Dubai",
+      "ownerName": "Dat Nguyen",
+      "description": "Idea description",
         "thumpDown": 2,
         "possibility": 90,
         "createDate": "2015-09-02 13:12:00",
@@ -104,7 +104,7 @@ var data_ideas = [
         "possibility": 100,
         "createDate": "2015-09-03 14:30:00",
         "modifyDate": "2015-09-05 16:00:00",
-        "labes": "supermarket, idea, sale",
+        "labels": ["supermarket", "idea", "sale"],
         "privacy": "public",
         "categories": [
             {
@@ -199,7 +199,7 @@ var data_ideas = [
         "possibility": 70,
         "createDate": "2015-09-03 10:30:00",
         "modifyDate": "2015-09-03 10:00:00",
-        "labes": "car, idea, security",
+        "labels": ["car", "idea", "security"],
         "privacy": "public",
         "categories": [
             {

@@ -19,7 +19,8 @@
         return {
             getLoginInfo: getLoginInfo,
             setLoginInfo: setLoginInfo,
-            getIdeas: getIdeas
+            getIdeas: getIdeas,
+            setIdeas: setIdeas
         };
 
         //==================== Function declaration ====================

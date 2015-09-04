@@ -7,22 +7,18 @@ angular.module('inceptionApp')
     var vm = this;
 
     vm.showEditHistory = showEditHistory;
+    vm.showAddCategory = showAddCategory;
+
+    init();
+    var ideas;
+
+
+    function init(){
+      ideas = commonShareService.getIdeas();
+      vm.selectedIdea = ideas[0];
+    }
 
     function showEditHistory(ev, history){
-      var a = history;
-      var hung = 'Hunafsafasfg';
-      //$mdDialog.show({
-      //  clickOutsideToClose: true,
-      //  scope: this,
-      //  preserveScope: true,
-      //  template:
-      //  '<md-dialog>' +
-      //  '  <md-dialog-content>Hello {{hung}}!</md-dialog-content>' +
-      //  '</md-dialog>',
-      //  controller: function EditHistory() {
-      //
-      //  }
-      //});
       $mdDialog.show({
         clickOutsideToClose: true,
         targetEvent: ev,
@@ -49,12 +45,15 @@ angular.module('inceptionApp')
       }
     };
 
-    init();
-    var ideas;
-
-
-    function init(){
-      ideas = commonShareService.getIdeas();
-      vm.selectedIdea = ideas[0];
-    }
+    function showAddCategory(ev, data){
+      $mdDialog.show({
+        clickOutsideToClose: true,
+        targetEvent: ev,
+        templateUrl: 'views/add-category.html',
+        locals: {
+          data: data
+        },
+        controller: 'AddCategoryController'
+      });
+    };
   });

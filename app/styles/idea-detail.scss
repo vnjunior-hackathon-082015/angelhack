@@ -254,4 +254,46 @@ v-pane-header{
   }
 }
 
+.dialog-add-category{
+  min-width: 800px;
+  .add-sections{
+    .sections{
+      overflow: scroll;
+      max-height: 200px;
+    }
+    .section{
+      background-color: rgb(200, 199, 199);
+      padding: 5px;
+      position: relative;
+      margin: 0 0 2px 0;
+      i{
+        position: absolute;
+        right: 0;
+        color: grey;
+        font-size: 20px;
+        cursor: pointer;
+        outline: none;
+      }
+    }
+    md-input-container{
+      i{
+        position: absolute;
+        right: 0;
+        top: 27px;
+        color: rgb(155, 150, 150);
+        cursor: pointer;
+        outline: none;
+      }
+      &.md-input-has-value.md-input-focused{
+        i{
+          color: rgb(63, 81, 181);
+        }
+      }
+      input{
+        padding-right: 30px;
+      }
+    }
+  }
+}
+
 
