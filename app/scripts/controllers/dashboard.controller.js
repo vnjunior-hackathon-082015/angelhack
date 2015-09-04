@@ -8,14 +8,14 @@
     .module('inceptionApp')
     .controller('DashboardController', DashboardController);
 
-  DashboardController.$inject = ['$scope', '$mdDialog'];
+  DashboardController.$inject = ['$scope', '$mdDialog', 'commonShareService'];
 
-  function DashboardController($scope, $mdDialog){
+  function DashboardController($scope, $mdDialog, commonShareService){
     var vm = this;
     vm.createIdea = createIdea;
 
     //==================== Function declaration ====================
-
+    $scope.ideaArray = commonShareService.getIdeas();
 
   function createIdea(event){
       $mdDialog.show({
@@ -34,8 +34,9 @@
           $scope.status = 'You cancelled the dialog.';
         });
     };
-   
   }
+
+
 
 })();
 
