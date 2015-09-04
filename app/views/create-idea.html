@@ -1,0 +1,93 @@
+<md-dialog class="create-idea-popup" aria-label="Create your idea"  style="width:1200px;height:1450px; ">
+  <form>
+	  <md-toolbar>
+	    <div class="md-toolbar-tools create-idea-toolbar-title">
+	      <h2>Create your Idea <md-icon md-font-library="material-icons">create</md-icon></h2>
+	      <span flex></span>
+	      <md-button class="md-icon-button" ng-click="vm.cancel()">
+	        <md-icon md-font-library="material-icons">close</md-icon>
+	      </md-button>
+	    </div>
+	  </md-toolbar>
+	  <md-dialog-content class="new-idea-info">
+		   <md-content layout-padding class="autoScroll">
+			
+			<md-input-container>
+			  <label>Title</label>
+			  <input ng-model="vm.ideaModel.title" type="text">
+			</md-input-container>
+			<md-input-container>
+			  <label>Description</label>
+			  <input ng-model="vm.ideaModel.description" type="text">
+			</md-input-container>
+			
+			<!-- Privacy -->
+			<md-select placeholder="Privacy" ng-model="vm.ideaModel.privacy" md-on-open="vm.loadPrivacyOptions()" style="max-width: 200px;">
+			    <md-option ng-value="option.name" ng-repeat="option in vm.privacyOptions">
+			     	<md-icon md-font-library="material-icons">{{option.icon}}</md-icon>
+			     	{{option.name}} 
+ 			 	</md-option>
+			</md-select>
+			<!-- Privacy -->
+			
+			<!-- Tags -->
+			<md-chips
+		        ng-model="vm.ideaModel.labels"
+		        placeholder="Enter a tag"
+		        delete-button-label="Remove Tag"
+		        delete-hint="Press delete to remove tag"
+		        secondary-placeholder="+Tags">
+		    </md-chips>
+		    <!-- Tags -->
+
+		    <md-whiteframe class="md-whiteframe main-content" layout layout-align="center center" ng-repeat="category in vm.ideaModel.categories track by $index">
+
+		    	<md-toolbar class="category-toolbar">
+			      <div class="md-toolbar-tools">
+			        <h4>
+			          <span>Main Category</span>
+			        </h4>
+			        <span flex></span>
+			        <md-button class="md-icon-button add-section-button" aria-label="Favorite" ng-click="vm.addSection($index)">
+			          <md-icon md-font-library="material-icons">add</md-icon>
+			        </md-button>
+			        <md-button class="md-icon-button" aria-label="Favorite" ng-click="vm.deleteCategory($index)">
+			          <md-icon md-font-library="material-icons">delete</md-icon>
+			        </md-button>
+			      </div>
+			    </md-toolbar>
+
+
+			    <md-content ng-repeat="content in vm.ideaModel.categories[$index].sections track by $index" layout="row">
+			    	<md-input-container flex="90">
+					  <label>Content</label>
+					  <input  type="text">
+					</md-input-container>
+					<md-button class="md-icon-button" aria-label="Favorite" ng-click="vm.deleteSection($parent.$index, $index)" flex="5">
+				        <md-icon md-font-library="material-icons">clear</md-icon>
+				    </md-button>
+				</md-content>
+				
+			  
+			</md-whiteframe>
+
+			<div layout="row add-category-control">
+				<md-input-container flex="80">
+				  <label>Category Name</label>
+				  <input  type="text">
+				</md-input-container>
+				<md-button class="md-raised md-primary add-category-button" ng-click="vm.addCategory()" flex="15">Add Category</md-button>
+				
+			</div>
+			
+			
+			  
+			<div class="md-actions" layout="row">
+			    <span flex></span>
+			    <md-button class="md-raised md-warn" ng-click="vm.answer('cancel')">Cancel</md-button>
+			    <md-button class="md-raised md-primary" ng-click="vm.confirmIdea(vm.ideaModel)">Create</md-button>
+			 </div>
+			</md-content>
+	   </md-dialog-content>
+  </form>
+</md-dialog>
