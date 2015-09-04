@@ -1,10 +1,10 @@
 var data_ideas = [
     {
         "id": 1,
-        "title": "Sell Vietnamese food in Dubai",
-        "ownerName": "Dat Nguyen",
-        "description": "Idea description",
         "thumpUp": 10,
+      "title": "Sell Vietnamese food in Dubai",
+      "ownerName": "Dat Nguyen",
+      "description": "Idea description",
         "thumpDown": 2,
         "possibility": 90,
         "createDate": "2015-09-02 13:12:00",

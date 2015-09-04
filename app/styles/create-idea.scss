@@ -1,0 +1,26 @@
+.create-idea-popup{
+	.new-idea-info{
+		.main-content{
+			display: block;
+			margin: 20px 10px;
+			.category-toolbar{
+				background-color: #ff5702;
+				.add-section-button{
+					
+				}
+			}
+		}
+		.add-category-control{
+			.add-category-button{
+				margin-top: 20px;
+				height: 30px;
+			}
+		}
+		.buttons-control{
+			.cancel-button, .create-button{
+				height: 50px;
+				width: 130px;
+			}
+		}
+	}
+}
