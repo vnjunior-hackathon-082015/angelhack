@@ -1,2 +1,26 @@
+<md-card>
+  <md-button class="md-primary md-raised" ng-click="vm.createIdea($event)" flex flex-md="100">
+    Create new Idea!
+  </md-button>
+</md-card>
+
+
+<md-input-container>
+  <label>Title</label>
+  <input required ng-model="vm.ideaModel.title" type="text">
+</md-input-container>
+<md-input-container>
+  <label>Description</label>
+  <input required ng-model="vm.ideaModel.description" type="text">
+</md-input-container>
+<md-input-container flex>
+  <label>Posibility</label>
+  <input  type="number" step="any" name="rate" ng-model="vm.ideaModel.posibility" min="0" max="100">
+</md-input-container>
+
+<md-select placeholder="privacy" ng-model="user" md-on-open="loadUsers()" style="min-width: 200px;">
+      <md-option ng-value="user" ng-repeat="user in users">{{user.name}}</md-option>
+</md-select>
+
 <!--<p>This is the about view.</p>-->
 
