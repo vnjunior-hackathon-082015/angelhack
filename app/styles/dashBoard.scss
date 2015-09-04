@@ -1,114 +1,187 @@
+.dashboard-content {
+    .search-container{
+        height: 12rem;
+        text-align: left;
+        margin-left: 5rem;
 
-.idea-container-div {
-	margin-top: 1rem;
-	background-color: rgba(31, 162, 255, 0.78);
-	-webkit-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.77);
-	-moz-box-shadow:    0px 0px 30px 0px rgba(50, 50, 50, 0.77);
-	box-shadow:         0px 0px 30px 0px rgba(50, 50, 50, 0.77);
-	height: 20rem;
-    display: table;
-    width: 94%;
-    position: fixed;
-    left: 3%;
-    margin-top: 1rem;
-    color: white;
-}
-.idea-header {
-	display: table-row;
-	height: 5rem;
-	margin-top: 1rem;
-}
+    }
+    .search-bar {
+        display: inline-flex;
+    }
+    .search-input {
+        background-color: #A0C5E8;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #50B6FF;
+        height: 4rem;
+        font-size: 3rem;
+        color: white;
+        padding-left: 1rem;
+        margin-right: 1rem;
+    }
+    .search-btn-span {
+        background-color: #FFFFFF;
+        border-color: #50B6FF;
+        border-style: solid;
+        border-width: 3px;
+        font-size: 2rem;
+        color: #50B6FF;
+    }
 
-.owner-avatar {
-	background-image: url("../images/anh_diep.jpg");
-    background-size: 5rem 5rem;
-    height: 5rem;
-    width: 5rem;
-    border-radius: 50%;
-    border-style: solid;
-    border-width: 3px;
-    border-color: #EF9927;
-}
-.owner-name {
-	margin-top: 1rem;
-	margin-left: 1rem;
-	position: absolute;
-	font-size: 17px;
-}
+    .search-result-label {
+        height: 3rem;
+    }
+    .search-result-label-span {
+        font-size: 3em;
+        color: #909090;
+    }
 
-.idea-title {
-    font-size: 25px;
-    font-weight: bold;
-    color: rgb(84, 84, 84);
-    text-transform: uppercase;
-}
-.idea-light {
-	background-image: url("../images/light_icon.png");
-    background-size: 10rem 10rem;
-    height: 10rem;
-    width: 10rem;
-    background-position: center center;
-    float: right;
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    border-color: white;
-    border-width: 3px;
-    border-style: solid;
-    text-align: center;
-    vertical-align: middle;
-}
-.idea-description {
-	margin-left: 9rem;
-    height: 10rem;
-    display: inline-flex;
-    position: static;
-}
-.description-content {
-    height: 10rem;
-    width: 80%;
-    background-repeat: no-repeat;
-    border-color: orange;
-    border-width: 3px;
-    border-style: solid;
-    position: absolute;
-    margin-left: 1rem;
-    padding: 0rem 1rem 1rem 1rem;
-}
-.thumb-up-btn {
-	background-image: url("../images/thumbs-up-.png");
-    background-size: 4rem 4rem;
-    height: 5rem;
-    width: 5rem;
-    background-position: center center;
-    float: right;
-    border-radius: 50%;
-    background-repeat: no-repeat;
-}
-.idea-footer {
-	display: table-row;
-	height: 7rem;
-    text-align: right;
-}
-.detail {
-    position: absolute;
-    border-color: white;
-    border-width: 3px;
-    border-style: solid;
-    padding: 1rem;
-    font-weight: bold;
-    margin-left: 84%;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-.idea-status {
-	height: 5rem;
-    vertical-align: middle;
-    text-align: right;
-}
-.thumb-up {
-	position: static;
-    margin-top: 1rem;
-    margin-right: 1rem;
-    display: inline-block;
-    font-size: 20px;
+    .search-tags-div {
+        margin-top: 1rem;
+    }
+
+    .search-tag {
+        font-size: 2em;
+        color: #38BCB5;
+        text-decoration: underline;
+        font-weight: bold;
+        margin-top: 1rem;
+        margin-left: 1rem;
+
+    }
+
+    .search-tag:hover{
+        .delete-tag {
+            background-image: url("../images/circle_close.png");
+            background-size: 2rem 2rem;
+            height: 2rem;
+            width: 2rem;
+            display: inline-block;
+        }
+    }
+
+
+
+    .search-result-icon {
+        text-align: left;
+        margin-left: 5rem;
+        background-image: url("../images/nav-search_icon.png");
+        background-size: 3rem 3rem;
+        height: 3rem;
+        width: 3rem;
+        display: inline-block;
+    }
+    .idea-container-div {
+        margin-top: 1rem;
+        background-color: rgba(31, 162, 255, 0.78);
+        -webkit-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.77);
+        -moz-box-shadow:    0px 0px 30px 0px rgba(50, 50, 50, 0.77);
+        box-shadow:         0px 0px 30px 0px rgba(50, 50, 50, 0.77);
+        height: 20rem;
+        display: table;
+        width: 94%;
+        position: fixed;
+        left: 3%;
+        margin-top: 1rem;
+        color: white;
+    }
+    .idea-header {
+        display: table-row;
+        height: 5rem;
+        margin-top: 1rem;
+    }
+
+    .owner-avatar {
+        background-image: url("../images/anh_diep.jpg");
+        background-size: 5rem 5rem;
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #EF9927;
+    }
+    .owner-name {
+        margin-top: 1rem;
+        margin-left: 1rem;
+        position: absolute;
+        font-size: 17px;
+    }
+
+    .idea-title {
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(84, 84, 84);
+        text-transform: uppercase;
+    }
+    .idea-light {
+        background-image: url("../images/light_icon.png");
+        background-size: 10rem 10rem;
+        height: 10rem;
+        width: 10rem;
+        background-position: center center;
+        float: right;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        border-color: white;
+        border-width: 3px;
+        border-style: solid;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .idea-description {
+        margin-left: 9rem;
+        height: 10rem;
+        display: inline-flex;
+        position: static;
+    }
+    .description-content {
+        height: 10rem;
+        width: 80%;
+        background-repeat: no-repeat;
+        border-color: white;
+        border-width: 3px;
+        border-style: solid;
+        position: absolute;
+        margin-left: 1rem;
+        padding: 0rem 1rem 1rem 1rem;
+    }
+    .thumb-up-btn {
+        background-image: url("../images/thumbs-up-.png");
+        background-size: 4rem 4rem;
+        height: 5rem;
+        width: 5rem;
+        background-position: center center;
+        float: right;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+    }
+    .idea-footer {
+        display: table-row;
+        height: 7rem;
+        text-align: right;
+    }
+    .detail {
+        position: absolute;
+        border-color: white;
+        border-width: 3px;
+        border-style: solid;
+        padding: 1rem;
+        font-weight: bold;
+        margin-left: 84%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .idea-status {
+        height: 5rem;
+        vertical-align: middle;
+        text-align: right;
+    }
+    .thumb-up {
+        position: static;
+        margin-top: 1rem;
+        margin-right: 1rem;
+        display: inline-block;
+        font-size: 20px;
+    }
 }
