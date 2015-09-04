@@ -8,6 +8,9 @@ angular.module('inceptionApp')
 
     vm.showEditHistory = showEditHistory;
     vm.showAddCategory = showAddCategory;
+    vm.addNewComment = addNewComment;
+    vm.showEditSection = showEditSection;
+    vm.thumpIdea = thumpIdea;
 
     init();
     var ideas;
@@ -45,15 +48,65 @@ angular.module('inceptionApp')
       }
     };
 
+    function showEditSection(ev, ideaId, categoryId, sectionId){
+      $mdDialog.show({
+        clickOutsideToClose: true,
+        targetEvent: ev,
+        template:
+        '<md-dialog class="dialog-category" aria-label="List dialog">' +
+        '  <md-dialog-content>'+
+        '    <md-input-container>'+
+        '     <label>Edit section</label>' +
+        '     <input ng-model="editSection" type="text">' +
+        '   </md-input-container>' +
+        '  </md-dialog-content>' +
+        '  <div class="md-actions">'+
+        '   <md-button ng-click="closeDialog()" class="md-warn">Cancel</md-button>'+
+        '   <md-button ng-click="submit()" class="md-primary">OK</md-button>'+
+        '  </div>'+
+        '</md-dialog>',
+        locals: {
+          ideaId: ideaId,
+          categoryId: categoryId,
+          sectionId: sectionId
+        },
+        controller: EditSectionController
+      });
+      function EditSectionController($scope, $mdDialog, ideaId, categoryId, sectionId) {
+        $scope.ideaId = ideaId;
+        $scope.categoryId = categoryId;
+        $scope.sectionId = sectionId;
+        $scope.closeDialog = function() {
+          $mdDialog.hide();
+        };
+        $scope.submit = function() {
+
+          $mdDialog.hide();
+        }
+      }
+    };
+
     function showAddCategory(ev, data){
       $mdDialog.show({
         clickOutsideToClose: true,
         targetEvent: ev,
         templateUrl: 'views/add-category.html',
         locals: {
-          data: data
+          data: data,
+          commonShareService: commonShareService
         },
         controller: 'AddCategoryController'
       });
     };
+
+    function addNewComment(ideaId, categoryId, sectionId){
+      if (vm.newComment != undefined && vm.newComment != ""){
+        commonShareService.commentIdea(vm.newComment, ideaId, categoryId, sectionId);
+        vm.newComment = "";
+      };
+    }
+
+    function thumpIdea(isThumpUp, ideaId, categoryId, sectionId){
+      commonShareService.thumpIdea(isThumpUp, ideaId, categoryId, sectionId);
+    }
   });
