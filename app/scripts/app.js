@@ -21,7 +21,8 @@ angular
     'ui.bootstrap',
     'vAccordion',
     'ui.bootstrap.datetimepicker',
-    'blockUI'
+    'blockUI',
+    'ngCkeditor'
   ])
   .config(function ($routeProvider, $urlRouterProvider, $stateProvider) {
     $urlRouterProvider.otherwise('/home');

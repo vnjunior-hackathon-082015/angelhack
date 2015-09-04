@@ -35,10 +35,12 @@ module.exports = function(config) {
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/v-accordion/dist/v-accordion.js',
       'bower_components/angular-ui-bootstrap-datetimepicker/datetimepicker.js',
+      'bower_components/d3/d3.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-aria/angular-aria.js',
       'bower_components/angular-material/angular-material.js',
       'bower_components/angular-block-ui/dist/angular-block-ui.js',
+      'bower_components/ng-ckeditor/ng-ckeditor.js',
       // endbower
       "app/scripts/**/*.js",
       "test/mock/**/*.js",
