@@ -1,0 +1,20 @@
+.create-idea-popup{
+	.new-idea-info{
+		.main-content{
+			display: block;
+			margin: 20px 10px;
+			.category-toolbar{
+				background-color: #ff5702;
+				.add-section-button{
+					
+				}
+			}
+		}
+		.add-category-control{
+			background-color: green;
+			.add-category-button{
+				height: 30px;
+			}
+		}
+	}
+}
