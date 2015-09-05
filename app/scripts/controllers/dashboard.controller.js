@@ -8,18 +8,36 @@
     .module('inceptionApp')
     .controller('DashboardController', DashboardController);
 
-  DashboardController.$inject = ['$scope', '$mdDialog', '$rootScope', 'commonShareService'];
+  DashboardController.$inject = ['$scope', '$mdDialog', '$rootScope', '$state', 'commonShareService'];
 
-  function DashboardController($scope, $mdDialog, $rootScope, commonShareService){
+  function DashboardController($scope, $mdDialog, $rootScope, $state, commonShareService){
     var vm = this;
-    $rootScope.activeTab = 'dashboard';
     vm.createIdea = createIdea;
+    vm.searchTags = [];
+    vm.searchIdeas = searchIdeas;
+    vm.thumpIdea = thumpIdea;
+    vm.suggestLabels = [];
+    vm.viewDetail = viewDetail;
+    activate();
 
 
     //==================== Function declaration ====================
-    $scope.ideaArray = commonShareService.getIdeas();
+    function activate(){
+      $rootScope.activeTab = 'dashboard';
+      // vm.ideaArray = commonShareService.getIdeas();
+      searchIdeas();
 
-  function createIdea(event){
+      vm.suggestLabels.push('sale');
+      vm.suggestLabels.push('restaurant');
+      vm.suggestLabels.push('bussiness');
+      vm.suggestLabels.push('startup');
+      vm.suggestLabels.push('security');
+      vm.suggestLabels.push('hand made');
+    }
+
+
+
+    function createIdea(event){
       $mdDialog.show({
         controller: "CreateIdeaController",
         controllerAs: "vm",
@@ -28,14 +46,25 @@
         targetEvent: event,
         clickOutsideToClose:false
       })
-        .then(function(answer) {
-          // getTripsData().then(function(){
-          //   initTripsProperty();
-          // });
-        }, function() {
-          $scope.status = 'You cancelled the dialog.';
-        });
-    };
+      .then(function(answer) {
+      }, function() {
+        // vm.status = 'You cancelled the dialog.';
+      });
+    }
+
+    function searchIdeas(){
+      var isOnlyLabel = false;
+      vm.ideas = commonShareService.searchIdeas(vm.searchTags, isOnlyLabel);
+    }
+
+    function thumpIdea(isThumpUp, ideaId){
+      commonShareService.thumpIdea(isThumpUp, ideaId);
+    }
+
+    function viewDetail(idea){
+      commonShareService.setCurrentIdea(idea);
+      $state.go('idea-detail');
+    }
   }
 
 

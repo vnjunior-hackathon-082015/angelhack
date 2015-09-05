@@ -5,13 +5,12 @@
 }
 .dashboard-content {
     .search-container{
-        height: 12rem;
         text-align: left;
         margin-left: 5rem;
 
     }
     .search-bar {
-        display: inline-flex;
+        /*display: inline-flex;*/
     }
     .search-input {
         border-style: solid;
@@ -34,6 +33,7 @@
 
     .search-result-label {
         height: 3rem;
+        margin-bottom: 10px;
     }
     .search-result-label-span {
         font-size: 2em;
@@ -77,7 +77,7 @@
     }
     .idea-container-div {
         margin-top: 1rem;
-        box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.77);
+        box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.77);
         display: inline-block;
         width: 100%;
         left: 3%;
@@ -85,10 +85,13 @@
         border-style: solid;
         border-width: 3px;
         border-color: #8ADEDA;
-    }
-    .idea-header {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+
+        .idea-header {
+            padding-left: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
     }
 
     .owner-avatar {
@@ -114,6 +117,7 @@
         color: rgb(84, 84, 84);
         text-transform: uppercase;
     }
+
     .idea-light {
         background-image: url("../images/light_icon.png");
         background-size: 10rem 10rem;
@@ -130,21 +134,25 @@
         vertical-align: middle;
     }
     .idea-description {
-        margin-left: 9rem;
-        height: 10rem;
-        display: inline-flex;
-        position: static;
-        margin-bottom: 1rem;
+        /*margin-left: 9rem;*/
+        /*height: 10rem;*/
+        /*display: inline-flex;
+        position: static;*/
+        /*margin-bottom: 1rem;*/
+        margin: 10px;
+        border: 3px solid #8ADEDA;
+        border-radius: 10px;
+        padding: 10px;
     }
     .description-content {
-        height: 10rem;
+        /*height: 10rem;
         width: 80%;
         border-color: #8ADEDA;
         border-width: 3px;
         border-style: solid;
         position: absolute;
         margin-left: 1rem;
-        padding: 0rem 1rem 1rem 1rem;
+        padding: 0rem 1rem 1rem 1rem;*/
     }
     .thumb-up-btn {
         background-image: url("../images/thumbs-up-.png");
@@ -160,6 +168,44 @@
         display: table;
         text-align: right;
         margin-bottom: 1rem;
+        .vote{
+          display: inline-block;
+          position: absolute;
+          i{
+            display: block;
+            padding: 10px 5px;
+            font-size: 20px;
+            line-height: 14px;
+            cursor: pointer;
+            color: #9E9E9E;
+            outline: none;
+          }
+          &.vote-down{
+            top: 0;
+            left: 60px;
+            i:hover{
+              color: #FF5722;
+            }
+            .vote-value{
+              font-weight: bold;
+              color: red;
+            }
+          }
+          &.vote-up{
+            top: 0;
+            left: 30px;
+            i:hover{
+              color: #03A9F4;
+            }
+            .vote-value{
+              font-weight: bold;
+              color: green;
+            }
+          }
+          .vote-value{
+            text-align: center;
+          }
+        }
     }
     .detail {
         position: absolute;

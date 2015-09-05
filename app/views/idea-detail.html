@@ -12,6 +12,9 @@
       </div>
     </div>
   </div>
+  <div class="idea-description">
+      {{vm.selectedIdea.description}}
+    </div>
   <div class="add-category">
     <md-button class="md-fab md-primary add-category" ng-click="vm.showAddCategory($event, vm.selectedIdea.id)">
       <i class="material-icons">add</i>
@@ -30,13 +33,13 @@
           <v-pane class="section-body" ng-repeat="section in category.sections">
             <v-pane-header class="section-title">
               <div class="vote vote-up">
-                <i class="material-icons" ng-click="vm.thumpIdea(true, vm.selectedIdea.id, category.id, section.id); $event.stopPropagation();">thumb_up</i>
+                <i class="material-icons" ng-click="vm.thumpSection(true, vm.selectedIdea.id, category.id, section.id); $event.stopPropagation();">thumb_up</i>
                 <div class="vote-value" ng-click="$event.stopPropagation();">
                   {{(section.thumpUp>0)?('+' + section.thumpUp):0}}
                 </div>
               </div>
               <div class="vote vote-down">
-                <i class="material-icons" ng-click="vm.thumpIdea(false, vm.selectedIdea.id, category.id, section.id); $event.stopPropagation();">thumb_down</i>
+                <i class="material-icons" ng-click="vm.thumpSection(false, vm.selectedIdea.id, category.id, section.id); $event.stopPropagation();">thumb_down</i>
                 <div class="vote-value" ng-click="$event.stopPropagation();">
                   {{(section.thumpDown>0)?('-' + section.thumpDown):0}}
                 </div>

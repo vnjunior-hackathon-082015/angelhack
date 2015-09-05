@@ -3,22 +3,20 @@
  */
 
 angular.module('inceptionApp')
-  .controller('IdeaDetailController', function(commonShareService, $log, $mdDialog, $scope, $rootScope){
+  .controller('IdeaDetailController', function(commonShareService, $log, $mdDialog, $scope, $rootScope, $stateParams){
     var vm = this;
     $rootScope.activeTab = 'idea-detail';
     vm.showEditHistory = showEditHistory;
     vm.showAddCategory = showAddCategory;
     vm.addNewComment = addNewComment;
     vm.showEditSection = showEditSection;
-    vm.thumpIdea = thumpIdea;
+    vm.thumpSection = thumpSection;
 
     init();
     var ideas;
-
-
     function init(){
-      ideas = commonShareService.getIdeas();
-      vm.selectedIdea = ideas[0];
+      // ideas = commonShareService.getIdeas();
+      vm.selectedIdea = commonShareService.getCurrentIdea();
     }
 
     function showEditHistory(ev, history){
@@ -118,7 +116,7 @@ angular.module('inceptionApp')
       };
     }
 
-    function thumpIdea(isThumpUp, ideaId, categoryId, sectionId){
-      commonShareService.thumpIdea(isThumpUp, ideaId, categoryId, sectionId);
+    function thumpSection(isThumpUp, ideaId, categoryId, sectionId){
+      commonShareService.thumpSection(isThumpUp, ideaId, categoryId, sectionId);
     }
   });
