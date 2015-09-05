@@ -86,7 +86,7 @@
     };
 
     function confirmIdea(ideaModel){
-      commonShareService.addIdea(ideaModel.title, ideaModel.description, ideaModel.labels, ideaModel.privacy, ideaModel.categories);
+      commonShareService.addIdea(ideaModel.title, ideaModel.description, ideaModel.labels, ideaModel.privacy.name, ideaModel.categories);
       answer("created");
     };
 
