@@ -30,6 +30,9 @@
     // };
      $scope.bigBulpClass = 'big-buld-type-1';
     // $scope.bigBulpClass = 'big-buld-type-1';
+
+    $scope.countIdeas = 555144;
+    $scope.countPeople = 22656;
     $interval(function(){
         var type = $scope.bigBulpClass[$scope.bigBulpClass.length-1];
         type = Number(type) + 1;
@@ -38,6 +41,14 @@
         }
         $scope.bigBulpClass = 'big-buld-type-' + type;
     }, 500);
+
+    $interval(function(){
+        $scope.countIdeas += Math.round((Math.random() * 10));
+    }, 1000);
+
+    $interval(function(){
+        $scope.countPeople += Math.round((Math.random() * 10))%3;
+    }, 1500);
 
     $scope.ideas = commonShareService.getIdeas();
 

@@ -16,7 +16,7 @@
     {{vm.selectedIdea.description}}
     <br/>
     <div ng-if="loginInfo.isUpgraded">
-      <md-button class="md-raised md-primary" ng-click="vm.showHideMindMap($event)">{{vm.isShowMindMap?'Show':'Hide'}} Mindmap</md-button>
+      <md-button class="md-raised md-primary" ng-click="vm.showHideMindMap($event)">{{!vm.isShowMindMap?'Show':'Hide'}} Mindmap</md-button>
       <div ng-controller="MindmapController">
         <div class="mindMap" mind-map="root" style="width:800px;height:800px;margin: 0 auto;" ng-show="vm.isShowMindMap"></div>
       </div>
