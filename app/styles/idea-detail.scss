@@ -11,34 +11,12 @@
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 3px 1px -2px rgba(0,0,0,.14),0 2px 2px 0 rgba(0,0,0,.098),0 1px 5px 0 rgba(0,0,0,.084);
-  .idea-header{
-    display: inline-block;
-    .avatar{
-      width: 100px;
-      height: 100px;
-      border-radius: 50px;
-      background-color: #66BB6A;
-      display: inline-block;
-      vertical-align: middle;
-      background-size: 100% 100%;
-    }
-    .idea-information{
-      display: inline-block;
-      vertical-align: top;
-      margin-left: 15px;
-    }
-    .title{
-      font-size: 25px;
-    }
-    .author{
-      font-weight: bold;
-      color: #757575;
-    }
-    .create-date{
-      font-style: italic;
-      font-size: 12px;
-      color: #757575;
-    }
+
+  .idea-description {
+    margin: 10px 10px 40px 10px;
+    border: 3px solid #8ADEDA;
+    border-radius: 10px;
+    padding: 10px;
   }
   .add-category{
     border-bottom: 1px solid rgb(226, 223, 223);
@@ -372,4 +350,74 @@ md-toolbar.md-default-theme{
 
 #ckeditor-edit-section.ng-hide + #cke_ckeditor-edit-section{
   display: none;
+}
+
+.idea-header{
+    /*display: inline-block;*/
+    .avatar{
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      background-color: #66BB6A;
+      display: inline-block;
+      vertical-align: middle;
+      background-size: 100% 100%;
+    }
+    .idea-information{
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 15px;
+    }
+    .title{
+      font-size: 25px;
+    }
+    .author{
+      font-weight: bold;
+      color: #757575;
+    }
+    .create-date{
+      font-style: italic;
+      font-size: 12px;
+      color: #757575;
+    }
+  }
+
+.main-container{
+  width: 80%;
+  display: inline-block;
+}
+.right-sidebar{
+  display: inline-block;
+  vertical-align: top;
+  width: 17%;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+}
+.main-content{
+  background-color: rgb(247, 240, 240);
+}
+
+.ads{
+  margin: 10px;
+  .ads-header{
+    background-color: rgb(33, 150, 243);
+    padding: 5px;
+    color: #fff;
+    font-size: 18px;
+  }
+  .ads-content{
+    min-height: 200px;
+    width: 100%;
+    background-color: #b6b6b6;
+    p{
+      text-align: center;
+      vertical-align: initial;
+      padding: 70px;
+      font-size: 25px;
+      color: #766F6F;
+      margin: 0;
+    }
+  }
 }
