@@ -4,17 +4,13 @@ var data_ideas = [
         "thumpUp": 10,
         "title": "Sell Vietnamese food in Dubai",
         "ownerName": "Dat Nguyen",
-        "ownerID": 1,
+        "ownerID" : 1,
         "description": "Idea description",
         "thumpDown": 2,
         "possibility": 90,
         "createDate": "2015-09-02 13:12:00",
         "modifyDate": "2015-09-04 15:00:00",
-        "labels": [
-            "Vietnamese food",
-            "idea",
-            "sale"
-        ],
+        "labels": ["Vietnamese food", "idea", "sale"],
         "privacy": "onlyme",
         "categories": [
             {
@@ -48,7 +44,23 @@ var data_ideas = [
                             },
                             {
                                 "id": 2,
-                                "value": "Section comment 2",
+                                "value": "bad idea i dont like Vietnamese food",
+                                "owner": {
+                                    "name": "Hien Pham",
+                                    "avatarURL": "../images/avatar/hien_pham.jpg"
+                                }
+                            },
+                            {
+                                "id": 3,
+                                "value": "how about the food supply?",
+                                "owner": {
+                                    "name": "Hung Thai",
+                                    "avatarURL": "../images/avatar/hung_thai.jpg"
+                                }
+                            },
+                            {
+                                "id": 4,
+                                "value": "no comments",
                                 "owner": {
                                     "name": "Hien Pham",
                                     "avatarURL": "../images/avatar/hien_pham.jpg"
@@ -81,7 +93,7 @@ var data_ideas = [
                         "comments": [
                             {
                                 "id": 1,
-                                "value": "Section comment 1",
+                                "value": "what is the most famous vn food?",
                                 "owner": {
                                     "name": "Hung Thai",
                                     "avatarURL": "../images/avatar/hung_thai.jpg"
@@ -89,7 +101,23 @@ var data_ideas = [
                             },
                             {
                                 "id": 2,
-                                "value": "Section comment 2",
+                                "value": "fish souce is not very smelly",
+                                "owner": {
+                                    "name": "Hien Pham",
+                                    "avatarURL": "../images/avatar/hien_pham.jpg"
+                                }
+                            },
+                            {
+                                "id": 3,
+                                "value": "i like Pho",
+                                "owner": {
+                                    "name": "Hung Thai",
+                                    "avatarURL": "../images/avatar/hung_thai.jpg"
+                                }
+                            },
+                            {
+                                "id": 4,
+                                "value": "what about the street foods? are they clean enough?",
                                 "owner": {
                                     "name": "Hien Pham",
                                     "avatarURL": "../images/avatar/hien_pham.jpg"
@@ -105,18 +133,14 @@ var data_ideas = [
         "id": 2,
         "title": "QR code to buy product from supermarket, not require to wait in line",
         "ownerName": "Hien Pham",
-        "ownerID": 3,
+        "ownerID" : 3,
         "description": "Idea description",
         "thumpUp": 50,
         "thumpDown": 10,
         "possibility": 100,
         "createDate": "2015-09-03 14:30:00",
         "modifyDate": "2015-09-05 16:00:00",
-        "labels": [
-            "supermarket",
-            "idea",
-            "sale"
-        ],
+        "labels": ["supermarket", "idea", "sale"],
         "privacy": "public",
         "categories": [
             {
@@ -207,18 +231,14 @@ var data_ideas = [
         "id": 3,
         "title": "Driver identify",
         "ownerName": "Hung Thai",
-        "ownerID": 4,
+        "ownerID" : 4,
         "description": "The car is only power on for the owner of the car",
         "thumpUp": 100,
         "thumpDown": 20,
         "possibility": 70,
         "createDate": "2015-09-03 10:30:00",
         "modifyDate": "2015-09-03 10:00:00",
-        "labels": [
-            "car",
-            "idea",
-            "security"
-        ],
+        "labels": ["car", "idea", "security"],
         "privacy": "public",
         "categories": [
             {
@@ -344,20 +364,13 @@ var data_ideas = [
         "thumpUp": 13,
         "title": "DuStop a stop over application",
         "ownerName": "Anh Diep",
-        "ownerID": 5,
+        "ownerID" : 5,
         "description": "Idea description",
         "thumpDown": 1,
         "possibility": 100,
         "createDate": "2015-09-05 07:12:00",
         "modifyDate": "2015-09-05 08:00:00",
-        "labels": [
-            "Dubai",
-            "stopover",
-            "travel",
-            "grouping",
-            "deal",
-            "skyward"
-        ],
+        "labels": ["Dubai", "stopover", "travel", "grouping", "deal", "skyward"],
         "privacy": "onlyme",
         "categories": [
             {
@@ -449,18 +462,13 @@ var data_ideas = [
         "thumpUp": 530,
         "title": "Make laptops with liquid cooler",
         "ownerName": "Anh Diep",
-        "ownerID": 5,
+        "ownerID" : 5,
         "description": "liquid cooler will be implement on laptops",
         "thumpDown": 1,
         "possibility": 100,
         "createDate": "2015-09-05 07:12:00",
         "modifyDate": "2015-09-05 08:00:00",
-        "labels": [
-            "laptop",
-            "liquid cooler",
-            "pc",
-            "gaming"
-        ],
+        "labels": ["laptop", "liquid cooler", "pc", "gaming"],
         "privacy": "onlyme",
         "categories": [
             {
@@ -547,6 +555,7 @@ var data_ideas = [
             }
         ]
     }
+
 ];
 
 

@@ -27,6 +27,7 @@
 	height: auto;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
+	font-family: aria;
 }
 
 .left{
@@ -36,11 +37,13 @@
 
 }
 .app-name{
-	font-size: 25px;
+	font-size: 50px;
+	color: #218A85;
 
 }
 .header-title{
 	margin-top: 50px;
+	margin-left: 28%;
 }
 .buld-img{
 	background-image: url("../images/buld.png");
@@ -71,21 +74,24 @@
 	padding-left: 18%;
 }
 .intro-text{
-	font-size: 22px;
+	font-size: 35px;
 	position: absolute;
 	top: 316px;
 	left: -62px;
+	color: #585050;
+	line-height: 40px;
 }
 .button-home{
 	height: 50px;
-	width: 165px;
-	font-size: 30px;
-	background-color: #F7941D;
-	border: none;
+    width: 176px;
+    font-size: 20px;
+    background-color: #F68E1F;
+    border: none;
+    border-radius: 40px;
 }
 .button-container{
-	top: -55px;
-	margin-left: 30%;
+	top: -98px;
+    margin-left: 28%;
 }
 .idea-icon-func{
 	background-image: url("../images/lightbulb14.png");
@@ -105,16 +111,33 @@
 	background-size: contain;
 	height: 70px;
 }
+.award-icon-func {
+	background-image: url("../images/award2.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 70px;
+}
 .info-home {
-	margin-top: 20px;
-	margin-left: 100px;
+	margin: 75px 195px;
 }
 .func-title{
 	margin-bottom: 18px;
-	font-size: 20px;
+	font-size:  30px;
 	color: #15ABA4;
 	font-weight: bold;
 }
 .func-content{
-    width: 70%;
+	    width: 70%;
+    color: gray;
+    font-size: 15px;
+}
+.number-idea{
+	font-size: 28px;
+	font-weight: bold;
+	color: #EF4432;
+}
+.number-people{
+	font-size: 29px;
+	font-weight: bold;
+	color: #EF4432;
 }

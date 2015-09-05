@@ -28,7 +28,8 @@
     //     $log.debug('$scope.modelName2', $scope.modelName2);
     //     $log.debug('$scope.modelName3', $scope.modelName3);
     // };
-    $scope.bigBulpClass = 'big-buld-type-1';
+     $scope.bigBulpClass = 'big-buld-type-1';
+    // $scope.bigBulpClass = 'big-buld-type-1';
     $interval(function(){
         var type = $scope.bigBulpClass[$scope.bigBulpClass.length-1];
         type = Number(type) + 1;
