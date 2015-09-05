@@ -62,7 +62,7 @@
 			    </md-toolbar>
 
 
-			    <md-content ng-repeat="content in vm.ideaModel.categories[$index].sections track by $index" layout="row">
+			    <md-content class="section-content" ng-repeat="content in vm.ideaModel.categories[$index].sections track by $index" layout="row">
 			    	<md-input-container flex="70">
 					  <label>Content</label>
 					  <input ng-model="vm.ideaModel.categories[$parent.$index].sections[$index].description" type="text">
@@ -77,7 +77,7 @@
 					</md-select>
 					<!-- Privacy -->
 
-					<md-button class="md-icon-button" aria-label="Favorite" ng-click="vm.deleteSection($parent.$index, $index)" flex="5">
+					<md-button class="md-icon-button section-delete-button" aria-label="Favorite" ng-click="vm.deleteSection($parent.$index, $index)" flex="5">
 				        <md-icon md-font-library="material-icons">clear</md-icon>
 				    </md-button>
 				</md-content>
