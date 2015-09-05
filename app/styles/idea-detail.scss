@@ -14,8 +14,8 @@
 
   .idea-description {
     margin: 10px 10px 40px 10px;
-    border: 3px solid #8ADEDA;
-    border-radius: 10px;
+    border: 1px solid #8ADEDA;
+    border-radius: 4px;
     padding: 10px;
   }
   .add-category{
@@ -383,13 +383,13 @@ md-toolbar.md-default-theme{
   }
 
 .main-container{
-  width: 80%;
+  width: 75%;
   display: inline-block;
 }
 .right-sidebar{
   display: inline-block;
   vertical-align: top;
-  width: 17%;
+  width: 22%;
   margin-top: 20px;
   background-color: #fff;
   border-radius: 4px;
@@ -402,22 +402,46 @@ md-toolbar.md-default-theme{
 .ads{
   margin: 10px;
   .ads-header{
-    background-color: rgb(33, 150, 243);
-    padding: 5px;
+    background-color: #F4511E;
     color: #fff;
     font-size: 18px;
+    padding: 5px;
+    text-align: center;
   }
   .ads-content{
     min-height: 200px;
     width: 100%;
     background-color: #b6b6b6;
-    p{
-      text-align: center;
-      vertical-align: initial;
-      padding: 70px;
-      font-size: 25px;
-      color: #766F6F;
+    md-card{
       margin: 0;
+      .event-title{
+        margin-top: -35px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .event-date{
+        display: inline-block;
+        div:first-child{
+          color: #bf5448;
+          font-weight: bold;
+          text-align: center;
+        }
+        div:last-child{
+          text-align: center;
+          font-size: 25px;
+          font-weight: bold;
+          margin-top: -5px;
+        }
+      }
+      .event-location{
+        display: inline-block;
+        vertical-align: top;
+        color: grey;
+        padding-left: 10px;
+      }
     }
   }
 }
