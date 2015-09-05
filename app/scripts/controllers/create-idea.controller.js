@@ -14,6 +14,7 @@
     var vm = this;
     vm.cancel = cancel;
     vm.answer = answer;
+    vm.loadIdeaPrivacyOptions = loadIdeaPrivacyOptions;
     vm.loadPrivacyOptions = loadPrivacyOptions;
     vm.addSection = addSection;
     vm.addCategory = addCategory;
@@ -43,6 +44,17 @@
 
     //==================== Function declaration ====================
 
+    function loadIdeaPrivacyOptions() {
+      // Use timeout to simulate a 650ms request.
+      vm.privacyIdeaOptions = [];
+      return $timeout(function() {
+        vm.privacyIdeaOptions = [
+          { name:'Only Me', icon:'lock' },
+          { name:'Public', icon:'public' }
+        ];
+      }, 650);
+    };
+    
     function loadPrivacyOptions() {
       // Use timeout to simulate a 650ms request.
       vm.privacyOptions = [];
