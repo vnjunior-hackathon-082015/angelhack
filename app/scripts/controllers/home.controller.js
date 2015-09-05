@@ -28,21 +28,22 @@
     //     $log.debug('$scope.modelName2', $scope.modelName2);
     //     $log.debug('$scope.modelName3', $scope.modelName3);
     // };
+     // $scope.bigBulpClass = 'big-buld-type-1';
     $scope.bigBulpClass = 'big-buld-type-1';
-    $interval(function(){
-        var type = $scope.bigBulpClass[$scope.bigBulpClass.length-1];
-        type = Number(type) + 1;
-        if(type > 4){
-            type = 1;
-        }
-        $scope.bigBulpClass = 'big-buld-type-' + type;
-    }, 500);
+    // $interval(function(){
+    //     var type = $scope.bigBulpClass[$scope.bigBulpClass.length-1];
+    //     type = Number(type) + 1;
+    //     if(type > 4){
+    //         type = 1;
+    //     }
+    //     $scope.bigBulpClass = 'big-buld-type-' + type;
+    // }, 500);
 
-    $scope.ideas = commonShareService.getIdeas();
+    // $scope.ideas = commonShareService.getIdeas();
 
-    $scope.explore = function(){
-        $state.go('dashboard');
-    }
+    // $scope.explore = function(){
+    //     $state.go('dashboard');
+    // }
 
 });
 

@@ -12,23 +12,27 @@
 	  <md-dialog-content class="new-idea-info">
 		   <md-content layout-padding class="autoScroll">
 			
-			<md-input-container>
+			<div layout="row">
+			<md-input-container flex="75">
 			  <label>Title</label>
 			  <input ng-model="vm.ideaModel.title" type="text">
 			</md-input-container>
-			<md-input-container>
-			  <label>Description</label>
-			  <input ng-model="vm.ideaModel.description" type="text">
-			</md-input-container>
-			
 			<!-- Privacy -->
-			<md-select placeholder="Privacy" ng-model="vm.ideaModel.privacy" md-on-open="vm.loadPrivacyOptions()" style="max-width: 200px;">
+			<md-select placeholder="Privacy" ng-model="vm.ideaModel.privacy" md-on-open="vm.loadPrivacyOptions()" style="max-width: 200px;" flex="20">
 			    <md-option ng-value="option" ng-repeat="option in vm.privacyOptions">
 			    	<md-icon md-font-library="material-icons">{{option.icon}}</md-icon>
 			     	{{option.name}} 
  			 	</md-option>
 			</md-select>
 			<!-- Privacy -->
+			</div>
+
+			<md-input-container>
+			  <label>Description</label>
+			  <input ng-model="vm.ideaModel.description" type="text">
+			</md-input-container>
+			
+			
 			
 			<!-- Tags -->
 			<md-chips
@@ -58,7 +62,7 @@
 			    </md-toolbar>
 
 
-			    <md-content ng-repeat="content in vm.ideaModel.categories[$index].sections track by $index" layout="row">
+			    <md-content class="section-content" ng-repeat="content in vm.ideaModel.categories[$index].sections track by $index" layout="row">
 			    	<md-input-container flex="70">
 					  <label>Content</label>
 					  <input ng-model="vm.ideaModel.categories[$parent.$index].sections[$index].description" type="text">
@@ -73,7 +77,7 @@
 					</md-select>
 					<!-- Privacy -->
 
-					<md-button class="md-icon-button" aria-label="Favorite" ng-click="vm.deleteSection($parent.$index, $index)" flex="5">
+					<md-button class="md-icon-button section-delete-button" aria-label="Favorite" ng-click="vm.deleteSection($parent.$index, $index)" flex="5">
 				        <md-icon md-font-library="material-icons">clear</md-icon>
 				    </md-button>
 				</md-content>
