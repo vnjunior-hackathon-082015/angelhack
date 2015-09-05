@@ -3,8 +3,13 @@
  */
 
 angular.module('inceptionApp')
-  .controller('AddCategoryController', function($scope, $mdDialog, data, commonShareService){
+  .controller('AddCategoryController', function($scope, $mdDialog, data, commonShareService, loginInfo){
     $scope.data = data;
+    $scope.editorOptions = {
+        language: 'en',
+        uiColor: '#000000'
+    };
+    $scope.loginInfo = loginInfo;
     $scope.newSections = [];
     $scope.newCategory = "";
     $scope.addNewSection = function(input){

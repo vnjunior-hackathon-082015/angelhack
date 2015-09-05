@@ -152,9 +152,7 @@
 .section-title{
   .vote{
     display: inline-block;
-    vertical-align: middle;
-    margin-left: -10px;
-    padding: 10px 0;
+    position: absolute;
     i{
       display: block;
       font-size: 40px;
@@ -162,37 +160,43 @@
       cursor: pointer;
       color: #9E9E9E;
       outline: none;
-      &.vote-up{
-        margin-bottom: 10px;
-      }
-      &.vote-up:hover{
-        color: #03A9F4;
-      }
-      &.vote-down:hover{
+    }
+    &.vote-down{
+      top: 0;
+      left: 30px;
+      i:hover{
         color: #FF5722;
       }
+      .vote-value{
+        font-weight: bold;
+        color: red;
+      }
+    }
+    &.vote-up{
+      top: 0;
+      left: 0;
+      i:hover{
+        color: #03A9F4;
+      }
+      .vote-value{
+        font-weight: bold;
+        color: green;
+      }
+    }
+    .vote-value{
+      text-align: center;
     }
   }
-  .vote-value{
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 20px;
-    margin-left: -5px;
-    margin-right: 10px;
-    padding: 10px 0;
-    cursor: inherit;
-    outline: none;
-  }
-  .title{
-    display: inline-block;
-    vertical-align: middle;
+  .description{
     cursor: pointer;
+    min-height: 40px;
+    padding-left: 60px;
+    padding-right: 200px;
+    min-height: 57px;
   }
   .history{
     display: inline-block;
     vertical-align: middle;
-    float: right;
-    padding-top: 20px;
     position: absolute;
     right: 0;
     bottom: 6px;
@@ -271,13 +275,17 @@ v-pane-header{
 
 .dialog-add-category{
   min-width: 800px;
+  &.have-ckeditor{
+    width: 1000px;
+    height: 800px;
+  }
   .add-sections{
     .sections{
       overflow-y: scroll;
       max-height: 200px;
     }
     .section{
-      background-color: rgb(200, 199, 199);
+      background-color: #F3F0F0;
       padding: 5px;
       position: relative;
       margin: 0 0 2px 0;
@@ -316,3 +324,19 @@ md-toolbar.md-default-theme{
 }
 
 
+.dialog-category{
+  width: 800px;
+}
+
+.cke_1_top{
+  background-image: -webkit-linear-gradient(top, rgb(229, 229, 229), green);
+}
+
+.cke_1_bottom{
+  background-image: -webkit-linear-gradient(top, rgb(229, 229, 229), green);
+}
+
+
+#ckeditor-edit-section.ng-hide + #cke_ckeditor-edit-section{
+  display: none;
+}

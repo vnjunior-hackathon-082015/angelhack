@@ -1,4 +1,5 @@
-<md-dialog class="dialog-add-category" aria-label="List dialog">
+<md-dialog class="dialog-add-category" ng-class="{'have-ckeditor': loginInfo.
+      isUpgraded}" aria-label="List dialog">
   <md-toolbar>
     <div class="md-toolbar-tools">
       <h2 class="title">Add New Category</h2>
@@ -14,15 +15,19 @@
       <div class="sections">
         <div class="section" ng-repeat="section in newSections">
           <i class="material-icons" ng-click="removeSection($index)">close</i>
-          <p>{{section}}<p>
+          <!-- <div>{{section}}</div> -->
+          <div ng-bind-html="section"></div>
         </div>
       </div>
-      <md-input-container flex>
+      <md-input-container flex ng-if="!loginInfo.isUpgraded">
         <label>New section</label>
-        <i class="material-icons" ng-click="addNewSection(newSectionInput)">send</i>
-        <!--<input ng-model="newSectionInput" ng-keypress="($event.which === 13)?addNewSection(newSectionInput):0">-->
-        <input ng-model="newSectionInput" >
+        <i class="material-icons" ng-click="$parent.addNewSection(newSectionInput)">send</i>
+        <input ng-model="$parent.newSectionInput" >
       </md-input-container>
+      <textarea id="ckeditor-edit-section" ckeditor="editorOptions" ng-model="$parent.newSectionInput" ng-if="loginInfo.
+      isUpgraded"></textarea>
+      <md-button class="md-raised md-primary pull-right" ng-click="$parent.addNewSection($parent.newSectionInput)" ng-if="loginInfo.
+      isUpgraded">Add Section</md-button>
     </div>
   </md-dialog-content>
   <div class="md-actions">

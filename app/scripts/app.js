@@ -61,6 +61,18 @@ angular
         controller: 'IdeaDetailController',
         controllerAs: 'vm'
       })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'views/login.html',
+        controller: 'LoginController',
+        controllerAs: 'vm'
+      })
+      .state('logout', {
+        url: '/logout',
+        templateUrl: 'views/logout.html',
+        controller: 'LogoutController',
+        controllerAs: 'vm'
+      })
       ;
   })
   .config(function($mdIconProvider){

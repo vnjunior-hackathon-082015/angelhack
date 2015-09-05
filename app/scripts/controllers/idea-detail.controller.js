@@ -3,9 +3,9 @@
  */
 
 angular.module('inceptionApp')
-  .controller('IdeaDetailController', function(commonShareService, $log, $mdDialog, $scope){
+  .controller('IdeaDetailController', function(commonShareService, $log, $mdDialog, $scope, $rootScope){
     var vm = this;
-
+    $rootScope.activeTab = 'idea-detail';
     vm.showEditHistory = showEditHistory;
     vm.showAddCategory = showAddCategory;
     vm.addNewComment = addNewComment;
@@ -55,10 +55,11 @@ angular.module('inceptionApp')
         template:
         '<md-dialog class="dialog-category" aria-label="List dialog">' +
         '  <md-dialog-content>'+
-        '    <md-input-container>'+
-        '     <label>Edit section</label>' +
-        '     <input ng-model="editSection" type="text">' +
-        '   </md-input-container>' +
+        '   <md-input-container ng-if="!loginInfo.isUpgraded">'+
+        '    <label>Edit section</label>' +
+        '    <input ng-model="$parent.editSection" type="text">' +
+        '  </md-input-container>' +
+        '  <textarea id="ckeditor-edit-section" ckeditor="editorOptions" ng-model="$parent.editSection" ng-if="loginInfo.isUpgraded"></textarea>' +
         '  </md-dialog-content>' +
         '  <div class="md-actions">'+
         '   <md-button ng-click="closeDialog()" class="md-warn">Cancel</md-button>'+
@@ -69,11 +70,17 @@ angular.module('inceptionApp')
           ideaId: ideaId,
           categoryId: categoryId,
           sectionId: sectionId,
-          value: value
+          value: value,
+          loginInfo: $rootScope.loginInfo
         },
         controller: EditSectionController
       });
-      function EditSectionController($scope, $mdDialog, ideaId, categoryId, sectionId, value) {
+      function EditSectionController($scope, $mdDialog, ideaId, categoryId, sectionId, value, loginInfo) {
+        $scope.editorOptions = {
+            language: 'en',
+            uiColor: '#000000'
+        };
+        $scope.loginInfo = loginInfo;
         $scope.ideaId = ideaId;
         $scope.categoryId = categoryId;
         $scope.sectionId = sectionId;
@@ -95,7 +102,8 @@ angular.module('inceptionApp')
         templateUrl: 'views/add-category.html',
         locals: {
           data: data,
-          commonShareService: commonShareService
+          commonShareService: commonShareService,
+          loginInfo: $rootScope.loginInfo
         },
         controller: 'AddCategoryController'
       });

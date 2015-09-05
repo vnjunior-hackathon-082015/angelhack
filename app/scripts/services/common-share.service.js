@@ -19,6 +19,7 @@
         return {
             getLoginInfo: getLoginInfo,
             setLoginInfo: setLoginInfo,
+            getUsers: getUsers,
             getIdeas: getIdeas,
             setIdeas: setIdeas,
             thumpIdea: thumpIdea,
@@ -30,6 +31,10 @@
         };
 
         //==================== Function declaration ====================
+        function getUsers(){
+          return angular.copy(data_users);
+        }
+
         function getLoginInfo(){
           if (!_loginInfo) {
             var param = $window.sessionStorage.loginInfo;

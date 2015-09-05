@@ -1,10 +1,27 @@
 .big-buld-container {
-	
-	background-image: url("../images/polygonal-idea.png");
 	height: 450px;
 	background-repeat: no-repeat;
 	background-size: contain;
 }
+
+.big-buld-type-1{
+	background-image: url("../images/polygonal-idea-1.png");
+}
+
+.big-buld-type-2{
+	background-image: url("../images/polygonal-idea-2.png");
+}
+
+.big-buld-type-3{
+	background-image: url("../images/polygonal-idea-3.png");
+}
+
+.big-buld-type-4{
+	background-image: url("../images/polygonal-idea-4.png");
+}
+
+
+
 .bg-image{
 	background-image: url("../images/landing-page.png");
 	height: auto;
@@ -34,23 +51,24 @@
 	background-repeat: no-repeat;
 }
 .buld1{
-	height: 351px;
+	height: 500px;
 	background-position: 0 -247px;
 	background-size: cover;
 }
 .buld2{
-	height: 351px;
+	height: 500px;
 	background-position:0 -291px;
 	background-size: cover;
 }
 .buld3{
-	height: 450px;
+	height: 600px;
 	background-position:0 -128px;
 	background-size: cover;
 
 }
 .buld-list{
-	margin-left: 18%;
+	height: 550px;
+	padding-left: 18%;
 }
 .intro-text{
 	font-size: 22px;
@@ -88,7 +106,7 @@
 	height: 70px;
 }
 .info-home {
-	margin-top: 50px;
+	margin-top: 20px;
 	margin-left: 100px;
 }
 .func-title{

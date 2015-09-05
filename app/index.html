@@ -14,11 +14,13 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/dashBoard.css">
     <link rel="stylesheet" href="styles/mindmap.css">
     <link rel="stylesheet" href="styles/idea-detail.css">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/create-idea.css">
+    <link rel="stylesheet" href="styles/login.css">
     <!-- endbuild -->
     <!-- Angular Material CSS using GitCDN to load directly from `bower-material/master` -->
     <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css">
@@ -40,7 +42,7 @@
           <div class="navbar-header">
 
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -52,11 +54,22 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/dashboard">DashBoard</a></li>
-              <li><a ng-href="#/idea-detail">Idea Detail</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
+              <li ng-class="{'active': activeTab == 'login'}"
+                ng-hide="loginInfo.username.length > 0">
+                <a href="#/login">Login</a>
+              </li>
+              <li ng-class="{'active': activeTab == 'home'}"><a href="#/">Home</a></li>
+              <li ng-class="{'active': activeTab == 'dashboard'}"><a ng-href="#/dashboard">DashBoard</a></li>
+              <li ng-class="{'active': activeTab == 'idea-detail'}"><a ng-href="#/idea-detail">Idea Detail</a></li>
+              <li ng-class="{'active': activeTab == 'logout'}"
+                  ng-show="loginInfo.username.length > 0">
+                  <a ng-href="#/logout">Logout</a>
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" ng-show="loginInfo.username.length > 0">Welcome {{loginInfo.firstName
+  + " " + lastName}}</a></li>
             </ul>
           </div>
         </div>
@@ -67,11 +80,11 @@
       <div ui-view=""></div>
     </div>
 
-    <div class="footer">
+    <!-- <div class="footer">
       <div class="container">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
       </div>
-    </div>
+    </div> -->
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -117,13 +130,15 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
 
-        <script src="assets/data_idea.js"></script>
+        <script src="assets/data_ideas.js"></script>
+        <script src="assets/data_users.js"></script>
 
         <script src="scripts/directives/mindmap.directive.js"></script>
         <!-- <script src="scripts/directives/changefile.directive.js"></script> -->
 
         <script src="scripts/services/common-share.service.js"></script>
-        <script src="scripts/controllers/test.controller.js"></script>
+        <script src="scripts/controllers/login.controller.js"></script>
+        <script src="scripts/controllers/logout.controller.js"></script>
         <script src="scripts/controllers/mind-map.controller.js"></script>
         <script src="scripts/controllers/editor.controller.js"></script>
         <script src="scripts/controllers/main.js"></script>

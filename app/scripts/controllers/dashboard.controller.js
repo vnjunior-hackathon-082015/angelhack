@@ -3,16 +3,18 @@
  */
  (function(){
   'use strict';
- 	
+
   angular
     .module('inceptionApp')
     .controller('DashboardController', DashboardController);
 
-  DashboardController.$inject = ['$scope', '$mdDialog', 'commonShareService'];
+  DashboardController.$inject = ['$scope', '$mdDialog', '$rootScope', 'commonShareService'];
 
-  function DashboardController($scope, $mdDialog, commonShareService){
+  function DashboardController($scope, $mdDialog, $rootScope, commonShareService){
     var vm = this;
+    $rootScope.activeTab = 'dashboard';
     vm.createIdea = createIdea;
+
 
     //==================== Function declaration ====================
     $scope.ideaArray = commonShareService.getIdeas();
