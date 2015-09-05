@@ -3,7 +3,8 @@
  */
 
 angular.module('inceptionApp')
-  .controller('IdeaDetailController', function(commonShareService, $log, $mdDialog, $scope, $rootScope, $stateParams){
+  .controller('IdeaDetailController', function(commonShareService, $log,
+        $mdDialog, $scope, $rootScope, $stateParams, $document, $modal){
     var vm = this;
     $rootScope.activeTab = 'idea-detail';
     vm.showEditHistory = showEditHistory;
@@ -11,6 +12,7 @@ angular.module('inceptionApp')
     vm.addNewComment = addNewComment;
     vm.showEditSection = showEditSection;
     vm.thumpSection = thumpSection;
+    vm.showHideMindMap = showHideMindMap;
 
     init();
     var ideas;
@@ -118,6 +120,17 @@ angular.module('inceptionApp')
     }
 
     function thumpSection(isThumpUp, ideaId, categoryId, sectionId){
-      commonShareService.thumpSection(isThumpUp, ideaId, categoryId, sectionId);
+      vm.selectedIdea = commonShareService.thumpSection(isThumpUp, ideaId, categoryId, sectionId);
+    }
+
+    function showHideMindMap(ev){
+      // $mdDialog.show({
+      //   clickOutsideToClose: true,
+      //   targetEvent: ev,
+      //   templateUrl: 'views/mind-map.html',
+      //   controller: 'MindmapController'
+      // });
+      // angular.element($document[0].querySelectorAll('#mind-map-modal')).modal("show");
+      vm.isShowMindMap = !vm.isShowMindMap;
     }
   });

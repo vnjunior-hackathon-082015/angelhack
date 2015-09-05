@@ -13,8 +13,15 @@
     </div>
   </div>
   <div class="idea-description">
-      {{vm.selectedIdea.description}}
+    {{vm.selectedIdea.description}}
+    <br/>
+    <div ng-if="loginInfo.isUpgraded">
+      <md-button class="md-raised md-primary" ng-click="vm.showHideMindMap($event)">{{vm.isShowMindMap?'Show':'Hide'}} Mindmap</md-button>
+      <div ng-controller="MindmapController">
+        <div class="mindMap" mind-map="root" style="width:800px;height:800px;margin: 0 auto;" ng-show="vm.isShowMindMap"></div>
+      </div>
     </div>
+  </div>
   <div class="add-category">
     <md-button class="md-fab md-primary add-category" ng-click="vm.showAddCategory($event, vm.selectedIdea.id)">
       <i class="material-icons">add</i>
@@ -24,14 +31,15 @@
 
   <div class="idea-content">
     <div class="category" ng-repeat="category in vm.selectedIdea.categories">
+      <!-- <pre>{{category | json}}</pre> -->
       <div class="category-header">
         {{category.name}}
       </div>
       <div class="category-content">
-
         <v-accordion class="vAccordion--default section" multiple>
-          <v-pane class="section-body" ng-repeat="section in category.sections | filterPrivacy:vm.loginInfo.id:vm.selectedIdea.ownerId">
+          <v-pane class="section-body" ng-repeat="section in category.sections | filterPrivacy:vm.loginInfo.id:vm.selectedIdea.ownerID">
             <v-pane-header class="section-title">
+            <!-- <pre>{{section | json}}</pre> -->
               <div class="vote vote-up">
                 <i class="material-icons" ng-click="vm.thumpSection(true, vm.selectedIdea.id, category.id, section.id); $event.stopPropagation();">thumb_up</i>
                 <div class="vote-value" ng-click="$event.stopPropagation();">
@@ -171,3 +179,27 @@
     </div>
   </div>
 </div>
+
+
+<!-- <div class="modal fade" id="mind-map-modal" role="dialog"  data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog dialog-fullwidth">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+                <h4 class="modal-title">Mindmap Editor</h4>
+            </div>
+            <div class="modal-body container-fluid  ">
+              <div ng-controller="MindmapController">
+                <div class="mindMap" mind-map="root" style="width:800px;height:800px"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" style="display:none">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div> -->
