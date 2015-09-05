@@ -13,8 +13,9 @@
     </div>
   </div>
   <div class="idea-description">
-      {{vm.selectedIdea.description}}
-    </div>
+    {{vm.selectedIdea.description}}
+    <md-button class="md-raised md-primary" ng-click="vm.showMindMap(idea)">Show Mindmap</md-button>
+  </div>
   <div class="add-category">
     <md-button class="md-fab md-primary add-category" ng-click="vm.showAddCategory($event, vm.selectedIdea.id)">
       <i class="material-icons">add</i>

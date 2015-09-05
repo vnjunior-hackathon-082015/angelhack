@@ -11,6 +11,7 @@ angular.module('inceptionApp')
     vm.addNewComment = addNewComment;
     vm.showEditSection = showEditSection;
     vm.thumpSection = thumpSection;
+    vm.showMindMap = showMindMap;
 
     init();
     var ideas;
@@ -119,5 +120,14 @@ angular.module('inceptionApp')
 
     function thumpSection(isThumpUp, ideaId, categoryId, sectionId){
       commonShareService.thumpSection(isThumpUp, ideaId, categoryId, sectionId);
+    }
+
+    function showMindMap(){
+      $mdDialog.show({
+        clickOutsideToClose: true,
+        targetEvent: ev,
+        templateUrl: 'views/emind-mapditor.html',
+        controller: 'MindmapController'
+      });
     }
   });
