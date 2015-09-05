@@ -12,6 +12,9 @@
       </div>
     </div>
   </div>
+  <div class="idea-description">
+      {{vm.selectedIdea.description}}
+    </div>
   <div class="add-category">
     <md-button class="md-fab md-primary add-category" ng-click="vm.showAddCategory($event, vm.selectedIdea.id)">
       <i class="material-icons">add</i>
@@ -27,16 +30,16 @@
       <div class="category-content">
 
         <v-accordion class="vAccordion--default section" multiple>
-          <v-pane class="section-body" ng-repeat="section in category.sections">
+          <v-pane class="section-body" ng-repeat="section in category.sections | filterPrivacy:vm.loginInfo.id:vm.selectedIdea.ownerId">
             <v-pane-header class="section-title">
               <div class="vote vote-up">
-                <i class="material-icons" ng-click="vm.thumpIdea(true, vm.selectedIdea.id, category.id, section.id); $event.stopPropagation();">thumb_up</i>
+                <i class="material-icons" ng-click="vm.thumpSection(true, vm.selectedIdea.id, category.id, section.id); $event.stopPropagation();">thumb_up</i>
                 <div class="vote-value" ng-click="$event.stopPropagation();">
                   {{(section.thumpUp>0)?('+' + section.thumpUp):0}}
                 </div>
               </div>
               <div class="vote vote-down">
-                <i class="material-icons" ng-click="vm.thumpIdea(false, vm.selectedIdea.id, category.id, section.id); $event.stopPropagation();">thumb_down</i>
+                <i class="material-icons" ng-click="vm.thumpSection(false, vm.selectedIdea.id, category.id, section.id); $event.stopPropagation();">thumb_down</i>
                 <div class="vote-value" ng-click="$event.stopPropagation();">
                   {{(section.thumpDown>0)?('-' + section.thumpDown):0}}
                 </div>
@@ -52,8 +55,26 @@
                 <i class="material-icons">history</i>
                 <span class="edit" ng-if="section.history.length > 1" ng-click="vm.showEditHistory($event, section.history); $event.stopPropagation();" >Edited </span><span>{{section.history[section.history.length - 1].createDate}}</span>
               </div>
-              <i class="material-icons edit-section" ng-click="vm.showEditSection($event, vm.selectedIdea.id, category.id, section.id, section.history[section.history.length - 1].description); $event.stopPropagation();">mode_edit</i>
-            </v-pane-header>
+              <div class="privacy">
+                <i class="material-icons edit-section" ng-click="vm.showEditSection($event, vm.selectedIdea.id, category.id, section.id, section.history[section.history.length - 1].description); $event.stopPropagation();">mode_edit</i>
+                <md-fab-speed-dial is-open="true" md-direction="up" ng-click="$event.stopPropagation();">
+                  <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab md-warn md-mini">
+                      <i class="material-icons privacy-icon" ng-if="section.privacy == 'public'">public</i>
+                      <i class="material-icons privacy-icon" ng-if="section.privacy == 'onlyme'">lock</i>
+                    </md-button>
+                  </md-fab-trigger>
+                  <md-fab-actions>
+                    <md-button aria-label="twitter" class="md-fab md-raised md-mini">
+                      <i class="material-icons privacy-icon" ng-click="section.privacy = 'public'">public</i>
+                    </md-button>
+                    <md-button aria-label="facebook" class="md-fab md-raised md-mini">
+                      <i class="material-icons privacy-icon"  ng-click="section.privacy = 'onlyme'">lock</i>
+                    </md-button>
+                  </md-fab-actions>
+                </md-fab-speed-dial>
+              </div>
+               </v-pane-header>
 
             <v-pane-content class="">
               <div class="comments">
