@@ -48,8 +48,8 @@
       vm.privacyOptions = [];
       return $timeout(function() {
         vm.privacyOptions = [
-          { name:'Only Me', icon:'lock' },
-          { name:'Public', icon:'public' }
+          { name:'onlyme', icon:'lock' },
+          { name:'public', icon:'public' }
         ];
       }, 650);
     };
@@ -97,7 +97,7 @@
     function cancel(){
       $mdDialog.cancel();
     };
-     
+
   }
 
 })();

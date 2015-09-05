@@ -114,6 +114,8 @@
                     }
 
                     setIdeas(ideas);
+                    setCurrentIdea(ideas[i]);
+                    return ideas[i];
                   }
                 }
               }
@@ -133,7 +135,7 @@
               ideas[i].thumpDown++;
             }
             setIdeas(ideas);
-            break;
+            return ideas[i];
           }
         }
       }
@@ -214,6 +216,7 @@
         var i,j,
             ideas = getIdeas(),
             ownerName = 'Dat Nguyen',
+            loginInfo = getLoginInfo(),
             createDate = toDateString(new Date()),
             categories = [];
 
@@ -248,6 +251,7 @@
             "id": ideas.length + 1,
             "title": title,
             "ownerName": ownerName,
+            "ownerID" : loginInfo.id,
             "description": description,
             "thumpUp": 0,
             "thumpDown": 0,
