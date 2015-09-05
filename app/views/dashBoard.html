@@ -4,11 +4,6 @@
   </md-button>
 </md-card>
 
-<div class="idea-container-div" style="margin-top: 1rem;">
-	<div class="col-xs-12 idea-header">
-		<div class="col-xs-2 left-hdr">
-			<span class="col-xs-1 owner-avatar"></span>
-			<span class="owner-name">Diep The Anh</span>
 <div class="dashboard-content">
 	<div class="search-container">
 		<div class="search-bar">
@@ -26,13 +21,13 @@
 			<span class="search-tag">#color damn <span class="delete-tag"></span></span>
 		</div>
 	</div>
-	<div class="idea-container-div" style="margin-top: 1rem;">
+	<md-card ng-repeat="idea in ideaArray" class="idea-container-div" style="margin-top: 1rem;">
 		<div class="col-xs-12 idea-header">
 			<div class="col-xs-2 left-hdr">
 				<span class="col-xs-1 owner-avatar"></span>
-				<span class="owner-name">Diep The Anh</span>
+				<span class="owner-name">{{idea.ownerName}}</span>
 			</div>
-			<span class="col-xs-8 idea-title">This is the IDEA's Title</span>
+			<span class="col-xs-8 idea-title">{{idea.title}}</span>
 			<div class="col-xs-2">		
 				<div class="idea-light">
 				</div>		
@@ -40,18 +35,18 @@
 		</div>
 		<div class="idea-description">
 			<span class="description-label">The idea is: </span>
-			<span class="description-content">this is the description of the idea. anything you want to say about your idea. </span>
+			<span class="description-content">{{idea.description}}</span>
 		</div>
 		<div class="col-xs-12 idea-footer">
 
 			<div class="idea-status">
 				<div class="detail">
 					<span>... more</span>
+					<!-- <span></span> -->
 				</div>
-				<span class="thumb-up">+20</span>
+				<span class="thumb-up">+{{idea.thumpUp}}</span>
 				<input type="button" class="thumb-up-btn">
 			</div>
 		</div>
-	</div>
-
+	</md-card>
 </div>

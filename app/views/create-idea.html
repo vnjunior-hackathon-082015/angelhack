@@ -12,23 +12,27 @@
 	  <md-dialog-content class="new-idea-info">
 		   <md-content layout-padding class="autoScroll">
 			
-			<md-input-container>
+			<div layout="row">
+			<md-input-container flex="75">
 			  <label>Title</label>
 			  <input ng-model="vm.ideaModel.title" type="text">
 			</md-input-container>
-			<md-input-container>
-			  <label>Description</label>
-			  <input ng-model="vm.ideaModel.description" type="text">
-			</md-input-container>
-			
 			<!-- Privacy -->
-			<md-select placeholder="Privacy" ng-model="vm.ideaModel.privacy" md-on-open="vm.loadPrivacyOptions()" style="max-width: 200px;">
+			<md-select placeholder="Privacy" ng-model="vm.ideaModel.privacy" md-on-open="vm.loadPrivacyOptions()" style="max-width: 200px;" flex="20">
 			    <md-option ng-value="option" ng-repeat="option in vm.privacyOptions">
 			    	<md-icon md-font-library="material-icons">{{option.icon}}</md-icon>
 			     	{{option.name}} 
  			 	</md-option>
 			</md-select>
 			<!-- Privacy -->
+			</div>
+
+			<md-input-container>
+			  <label>Description</label>
+			  <input ng-model="vm.ideaModel.description" type="text">
+			</md-input-container>
+			
+			
 			
 			<!-- Tags -->
 			<md-chips
