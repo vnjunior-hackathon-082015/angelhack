@@ -208,6 +208,7 @@
       md-fab-trigger{
         button.md-button.md-warn.md-fab{
           background-color: rgb(33, 150, 243);
+          box-shadow: none;
           i{
             margin-top: 8px;
             color: #fff;
@@ -385,6 +386,11 @@ md-toolbar.md-default-theme{
 .main-container{
   width: 75%;
   display: inline-block;
+}
+.dashboard-content{
+  width: 75%;
+  display: inline-block;
+  margin-right: 25px;
 }
 .right-sidebar{
   display: inline-block;
