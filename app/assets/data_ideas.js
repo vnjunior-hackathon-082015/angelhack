@@ -44,7 +44,23 @@ var data_ideas = [
                             },
                             {
                                 "id": 2,
-                                "value": "Section comment 2",
+                                "value": "bad idea i dont like Vietnamese food",
+                                "owner": {
+                                    "name": "Hien Pham",
+                                    "avatarURL": "../images/avatar/hien_pham.jpg"
+                                }
+                            },
+                            {
+                                "id": 3,
+                                "value": "how about the food supply?",
+                                "owner": {
+                                    "name": "Hung Thai",
+                                    "avatarURL": "../images/avatar/hung_thai.jpg"
+                                }
+                            },
+                            {
+                                "id": 4,
+                                "value": "no comments",
                                 "owner": {
                                     "name": "Hien Pham",
                                     "avatarURL": "../images/avatar/hien_pham.jpg"
@@ -77,7 +93,7 @@ var data_ideas = [
                         "comments": [
                             {
                                 "id": 1,
-                                "value": "Section comment 1",
+                                "value": "what is the most famous vn food?",
                                 "owner": {
                                     "name": "Hung Thai",
                                     "avatarURL": "../images/avatar/hung_thai.jpg"
@@ -85,7 +101,23 @@ var data_ideas = [
                             },
                             {
                                 "id": 2,
-                                "value": "Section comment 2",
+                                "value": "fish souce is not very smelly",
+                                "owner": {
+                                    "name": "Hien Pham",
+                                    "avatarURL": "../images/avatar/hien_pham.jpg"
+                                }
+                            },
+                            {
+                                "id": 3,
+                                "value": "i like Pho",
+                                "owner": {
+                                    "name": "Hung Thai",
+                                    "avatarURL": "../images/avatar/hung_thai.jpg"
+                                }
+                            },
+                            {
+                                "id": 4,
+                                "value": "what about the street foods? are they clean enough?",
                                 "owner": {
                                     "name": "Hien Pham",
                                     "avatarURL": "../images/avatar/hien_pham.jpg"
