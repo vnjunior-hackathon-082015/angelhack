@@ -7,45 +7,69 @@
 <div class="dashboard-content">
 	<div class="search-container">
 		<div class="search-bar">
-			<input type="text" class="search-input" placeholder="What do you looking for?">
-			<input type="button" class="search-btn-span" value="Search">
+			<!-- <input type="text" class="search-input" placeholder="What do you looking for?"> -->
+			<md-chips
+		        ng-model="vm.searchTags"
+		        placeholder="Enter a tag"
+		        delete-button-label="Remove Tag"
+		        delete-hint="Press delete to remove tag"
+		        secondary-placeholder="+Tag"></md-chips>
+	        <md-button class="md-raised md-primary" ng-click="vm.searchIdeas()">Search</md-button>
+			<span class="search-result-label-span" ng-show="vm.ideas.length > 0"> {{vm.ideas.length}} ideas found</span>
+			<span class="search-result-label-span" ng-show="vm.ideas.length == 0"> Sorry, we dont have any idea for related tags</span>
 		</div>
-		<div class="search-result-label">
-			<span class="search-result-icon"></span>
-			<span class="search-result-label-span">285 ideas found for related tags: </span>
+		<!-- <div class="search-result-label">
+		</div> -->
+		<div>
+			Common Labels:
 		</div>
-		<div class="search-tags-div">
-			<span class="search-tag">#color codes <span class="delete-tag"></span></span>
-			<span class="search-tag">#color shit <span class="delete-tag"></span></span>
-			<span class="search-tag">#color fuck <span class="delete-tag"></span></span>
-			<span class="search-tag">#color damn <span class="delete-tag"></span></span>
+		<div class="list-label">
+	        <span class="label" ng-repeat="label in vm.suggestLabels">{{label}}</span>
 		</div>
 	</div>
-	<md-card ng-repeat="idea in ideaArray" class="idea-container-div" style="margin-top: 1rem;">
-		<div class="col-xs-12 idea-header">
+	<md-card ng-repeat="idea in vm.ideas" class="idea-container-div" style="margin-top: 1rem;">
+		<!-- <div class="col-xs-12 idea-header">
 			<div class="col-xs-2 left-hdr">
 				<span class="col-xs-1 owner-avatar"></span>
 				<span class="owner-name">{{idea.ownerName}}</span>
 			</div>
 			<span class="col-xs-8 idea-title">{{idea.title}}</span>
-			<div class="col-xs-2">		
+			<div class="col-xs-2">
 				<div class="idea-light">
-				</div>		
+				</div>
 			</div>
+		</div> -->
+		<div class="idea-header">
+		    <div class="avatar" style="background-image: url('../images/avatar/jsa.jpg');"></div>
+		    <div class="idea-information">
+				<div class="title">
+			        {{idea.title}}
+				</div>
+				<div class="author"> {{idea.ownerName}}</div>
+				<div class="create-date">{{idea.createDate}}</div>
+				<div class="list-label">
+			        <span class="label" ng-repeat="label in idea.labels">{{label}}</span>
+				</div>
+		    </div>
 		</div>
 		<div class="idea-description">
-			<span class="description-label">The idea is: </span>
-			<span class="description-content">{{idea.description}}</span>
+			{{idea.description}}
 		</div>
 		<div class="col-xs-12 idea-footer">
-
 			<div class="idea-status">
-				<div class="detail">
-					<span>... more</span>
-					<!-- <span></span> -->
+				<md-button class="md-raised md-primary" ng-click="vm.viewDetail(idea)">Detail</md-button>
+				<div class="vote vote-up">
+					<i class="material-icons" ng-click="vm.thumpIdea(true, idea.id); $event.stopPropagation();">thumb_up</i>
+	                <div class="vote-value" ng-click="$event.stopPropagation();">
+	                  {{(idea.thumpUp>0)?('+' + idea.thumpUp):0}}
+	                </div>
 				</div>
-				<span class="thumb-up">+{{idea.thumpUp}}</span>
-				<input type="button" class="thumb-up-btn">
+				<div class="vote vote-down">
+	                <i class="material-icons" ng-click="vm.thumpIdea(false, idea.id); $event.stopPropagation();">thumb_down</i>
+	                <div class="vote-value" ng-click="$event.stopPropagation();">
+	                  {{(idea.thumpDown>0)?('-' + idea.thumpDown):0}}
+	                </div>
+				</div>
 			</div>
 		</div>
 	</md-card>
