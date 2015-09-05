@@ -49,8 +49,8 @@
       vm.privacyIdeaOptions = [];
       return $timeout(function() {
         vm.privacyIdeaOptions = [
-          { name:'Only Me', icon:'lock' },
-          { name:'Public', icon:'public' }
+          { name:'onlyme', icon:'lock' },
+          { name:'public', icon:'public' }
         ];
       }, 650);
     };
