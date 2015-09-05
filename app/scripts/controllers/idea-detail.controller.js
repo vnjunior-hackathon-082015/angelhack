@@ -19,6 +19,7 @@ angular.module('inceptionApp')
     function init(){
       ideas = commonShareService.getIdeas();
       vm.selectedIdea = ideas[0];
+      vm.loginInfo = commonShareService.getLoginInfo();
     }
 
     function showEditHistory(ev, history){
