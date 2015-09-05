@@ -18,8 +18,8 @@
 			  <input ng-model="vm.ideaModel.title" type="text">
 			</md-input-container>
 			<!-- Privacy -->
-			<md-select placeholder="Privacy" ng-model="vm.ideaModel.privacy" md-on-open="vm.loadPrivacyOptions()" style="max-width: 200px;" flex="20">
-			    <md-option ng-value="option" ng-repeat="option in vm.privacyOptions">
+			<md-select placeholder="Privacy" ng-model="vm.ideaModel.privacy" md-on-open="vm.loadIdeaPrivacyOptions()" style="max-width: 200px;" flex="20">
+			    <md-option ng-value="option" ng-repeat="option in vm.privacyIdeaOptions">
 			    	<md-icon md-font-library="material-icons">{{option.icon}}</md-icon>
 			     	{{option.name}} 
  			 	</md-option>
@@ -69,7 +69,6 @@
 					</md-input-container>
 					<!-- Privacy -->
 					<md-select placeholder="Section Privacy" ng-model="vm.ideaModel.categories[$parent.$index].sections[$index].privacy" md-on-open="vm.loadPrivacyOptions()" style="max-width: 200px;" flex="20">
-						<md-select-label>{{vm.ideaModel.categories[$parent.$index].sections[$index].privacy.name}}</md-select-label> 
 					    <md-option ng-value="option.name" ng-repeat="option in vm.privacyOptions">
 					     	<md-icon md-font-library="material-icons">{{option.icon}}</md-icon>
 					     	{{option.name}} 

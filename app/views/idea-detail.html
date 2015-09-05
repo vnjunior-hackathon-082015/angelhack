@@ -1,6 +1,6 @@
 <div class="main-container">
   <div class="idea-header">
-    <div class="avatar" style="background-image: url('../images/avatar/jsa.jpg');"></div>
+    <div class="avatar" style="background-image: url({{vm.selectedIdea.avatarURL}});"></div>
     <div class="idea-information">
       <div class="title">
         {{vm.selectedIdea.title}}
@@ -116,27 +116,66 @@
 </div>
 <div class="right-sidebar">
   <div class="ads" >
-    <div class="ads-header">
-      Current event: My Event 1
+    <div class="ads-header" style="background-color: #29B6F6">
+      Current event
     </div>
     <div class="ads-content" >
-      <p>250x175</p>
+      <md-card>
+        <img ng-src="../images/marvel.jpg" class="md-card-image" alt="Washed Out">
+        <div class="event-title">NEW MARVEL ASIAN SUPERHERO</div>
+        <md-card-content>
+          <div class="event-date">
+            <div>SEP</div>
+            <div>05</div>
+          </div>
+          <div class="event-location">
+            <span>08:00am in UTC</span><br>
+            <span>Global</span>
+          </div>
+        </md-card-content>
+      </md-card>
     </div>
   </div>
   <div class="ads" >
     <div class="ads-header">
-      Next Event: My Event 2
+      Incoming
     </div>
     <div class="ads-content" >
-      <p>250x175</p>
+      <md-card>
+        <img ng-src="../images/angelhack.jpg" class="md-card-image" alt="Washed Out">
+        <div class="event-title">IDEAS FOR ANGELHACK</div>
+        <md-card-content>
+          <div class="event-date">
+            <div>NOV</div>
+            <div>09</div>
+          </div>
+          <div class="event-location">
+            <span>08:00am in UTC+4</span><br>
+            <span>Abu Dhabi, United Arab Emirates</span>
+          </div>
+        </md-card-content>
+      </md-card>
     </div>
   </div>
   <div class="ads" >
     <div class="ads-header">
-      Next Event: My Event 3
+      Incoming
     </div>
     <div class="ads-content" >
-      <p>250x175</p>
+      <md-card>
+        <img ng-src="../images/pho.jpg" class="md-card-image" alt="Washed Out">
+        <div class="event-title">VIETNAMESE RESTAURANT</div>
+        <md-card-content>
+          <div class="event-date">
+            <div>DEC</div>
+            <div>12</div>
+          </div>
+          <div class="event-location">
+            <span>08:00am in UTC</span><br>
+            <span>Global</span>
+          </div>
+        </md-card-content>
+      </md-card>
     </div>
   </div>
 </div>
