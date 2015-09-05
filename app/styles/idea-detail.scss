@@ -381,3 +381,43 @@ md-toolbar.md-default-theme{
       color: #757575;
     }
   }
+
+.main-container{
+  width: 80%;
+  display: inline-block;
+}
+.right-sidebar{
+  display: inline-block;
+  vertical-align: top;
+  width: 17%;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+}
+.main-content{
+  background-color: rgb(247, 240, 240);
+}
+
+.ads{
+  margin: 10px;
+  .ads-header{
+    background-color: rgb(33, 150, 243);
+    padding: 5px;
+    color: #fff;
+    font-size: 18px;
+  }
+  .ads-content{
+    min-height: 200px;
+    width: 100%;
+    background-color: #b6b6b6;
+    p{
+      text-align: center;
+      vertical-align: initial;
+      padding: 70px;
+      font-size: 25px;
+      color: #766F6F;
+      margin: 0;
+    }
+  }
+}
